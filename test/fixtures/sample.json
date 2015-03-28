@@ -1,0 +1,2827 @@
+{
+  url_key: "hgnd",
+  updated_at: "2015-03-19T20:26:24Z",
+  title: "The Robit Riddle",
+  data: {
+    initial: "tinkTownIsAQuiet",
+    allowCheckpoints: false,
+    stitches: {
+      youAreSurprisedT: {
+        content: [
+          "You are surprised that you do not see him, nor have you heard him this morning. You give a loud squawk, calling out to him. Nothing comes back. As you search you see none of your farm robits either.*--*",
+          {
+            divert: "asYouSearchTheSk"
+          }
+        ]
+      },
+      inYourHasteYouFa: {
+        content: [
+          "In your haste you fail to see the Itchy Ivy as you fall into it. This itchy, scratchy, tangling mess of wires is a weed that can insnare and trap.",
+          {
+            linkPath: "pushWayThroughTa",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Forceful"
+          },
+          {
+            linkPath: "thinkWayThroughT",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Clever"
+          }
+        ]
+      },
+      thereIsMoreThanO: {
+        content: [
+          ""There is more than one way to help everyone involved then just with the use of force and power." You reply hoping that he will understand what it is you are trying to do.",
+          {
+            divert: "youAreRightAndTi"
+          }
+        ]
+      },
+      whenYouLookOutTh: {
+        content: [
+          "When you look out the window you see some robits disappearing into the distance near Lullaby Lake.",
+          {
+            divert: "youWonderIfYourR"
+          }
+        ]
+      },
+      youDescribeToRib: {
+        content: [
+          "You describe to Ribbit your resolute to find and recover not just your robit, but to solve what is happening to all of the robits. Swayed by your conviction to help Robbit decides to join your group and help you along the way as best he can.",
+          {
+            divert: "afterTalkingAndL"
+          }
+        ]
+      },
+      lostShowsWhatYou: {
+        content: [
+          ""Lost... shows what you know.",
+          {
+            divert: "iFoundThisOneRob"
+          }
+        ]
+      },
+      allYourFearsSeem: {
+        content: [
+          "All your fears seem to come to life now that you are here. The foul air, the loud inexplicable noises. You feel helpless as you shake.",
+          {
+            divert: "asYouStartToExpl"
+          }
+        ]
+      },
+      youPopOpenTheCov: {
+        content: [
+          "You pop open the cover to a control panel. In it you see a glowing piece of metal. This is a small power unit called a Force Fragment. As you are examining the panel a hissing sound fills the chamber. Quickly you wire the control panel to open the door. Then you pop the Force Fragment from the control panel, and the furnace shuts down.",
+          {
+            divert: "narrowlyEscaping"
+          }
+        ]
+      },
+      ribbitRobbot: {
+        content: [
+          "*-Ribbit Robbot-*",
+          {
+            divert: "ribbitRobbotIsOn"
+          }
+        ]
+      },
+      anyoneWouldHaveS: {
+        content: [
+          ""Anyone would have stumbled at that moment, with what you had seen. But you are not alone now. We can get to the bottom of this together! Join me and you will see your Ducky again!"",
+          {
+            divert: "dentSlowlyBegins"
+          }
+        ]
+      },
+      youSleepilyGetUp: {
+        content: [
+          "You sleepily get up and head downstairs and find her crying while looking all over the house.",
+          {
+            divert: "thumpyIsMissingS"
+          }
+        ]
+      },
+      asYouSearchYouHe: {
+        content: [
+          "As you search you hear a hissing sound like gas is starting to flow. You see a large red button at the back. You rush to it and smash it quickly. The hissing stops, and the large door at the front opens back up.",
+          {
+            divert: "narrowlyEscaping"
+          }
+        ]
+      },
+      afterHavingMadeI: {
+        content: [
+          "After having made it through intelligence and investigation school and getting a junior level surveillance job, you finally have a chance to get the robit you have always wanted.",
+          {
+            divert: "ellieHasBeenYour"
+          }
+        ]
+      },
+      targetCareful1: {
+        content: [
+          "*-Target: 4 Careful-*",
+          {
+            linkPath: "allTheseRobitsWe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asSoonTickTockTi",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "targetCareful2",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      justAsYouAreAbou: {
+        content: [
+          "Just as you are about to speak Tick Tock Titan speaks up.",
+          {
+            divert: "ribbitRobbotIsTh"
+          }
+        ]
+      },
+      youTryToPutHimAt: {
+        content: [
+          "You try to put him at ease telling him that you are sure the robits will return sooner than later.",
+          {
+            divert: "asYouWatchTheLit"
+          }
+        ]
+      },
+      iKnowWhatYouFeel: {
+        content: [
+          ""I know what you feel, it is the same for me. All these robits where once my wards, and many more before them.",
+          {
+            divert: "youSeeIHaveBeenA"
+          }
+        ]
+      },
+      atchooHasBeenYou: {
+        content: [
+          "Atchoo has been your pet robit since you both had training modules installed. You have gathered more robit friends since those days, but Atchoo is very special to you. Atchoo was the robit that founded your love of four legged robits.",
+          {
+            divert: "asYourInitializa"
+          }
+        ]
+      },
+      charmYourWayPast: {
+        content: [
+          "Charm your way past: *-Target 5 Flashy-**--*",
+          {
+            linkPath: "asYouSlowlyAppro",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asYouSlowlyDesce",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "helloYouCallOutS",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      argueBackAtHimTa: {
+        content: [
+          "Argue back at him. *-Target: 2 Clever-*",
+          {
+            linkPath: "aarghEventuallyT",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "atFirstAarghIsRe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success +2"
+          },
+          {
+            linkPath: "unsuccessfulInYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      heThenTellsYouOf: {
+        content: [
+          "He then tells you of a former employee called Tick Tock Titan. He was in charge of caring for the little robits as they first awoke. He did a great job until there was an accident, that caused them to let him go.",
+          {
+            divert: "tickTockTitanIsA"
+          }
+        ]
+      },
+      asYouWatchTheLit: {
+        content: [
+          "As you watch the little robot leave you are weary of continuing, but continue you must for your and everyone else's robits are in need.",
+          {
+            linkPath: "asYouApproachThe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Continue to Moaning Mines"
+          }
+        ]
+      },
+      comeToMeComeToTi: {
+        content: [
+          ""Come to me, come to Tick Tock Titan, my little robits" you hear the large robot bellow. Before continuing further, you decide to take advantage of your high perch.*--*",
+          {
+            divert: "targetCareful"
+          }
+        ]
+      },
+      farmingHasAlways: {
+        content: [
+          "Farming has always been a way of life for your family. You grew up on the same plot of metal where your great grandbot was raised. Now you work this slowly decaying farm as your ancestors had. You love the peace and quiet that it offers and it doesn't ask for much in return.",
+          {
+            divert: "thisSimpleLifeHa"
+          }
+        ]
+      },
+      whatYouDontKnowI: {
+        content: [
+          "What you don't know is why he needed the robits to do this? Is he planning on taking the robits with him?",
+          {
+            linkPath: "notSureOfHisInte",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Slowly approach and talk"
+          },
+          {
+            linkPath: "knowingMoreThanJ",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Sneak and jump"
+          }
+        ]
+      },
+      asYouHeadDownThe: {
+        content: [
+          "*--*As you head down the the dark path, you hear the sounds of deep vocal patterns sharply barking out into the nothingness. You spy a silhouette up ahead. It is pacing back and forth as if it is guarding something.*--*",
+          {
+            linkPath: "overpowerTargetF",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Forceful"
+          },
+          {
+            linkPath: "sneakByTargetSne",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Sneaky"
+          },
+          {
+            linkPath: "charmYourWayPast",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Flashy"
+          }
+        ]
+      },
+      gettingReadyToSt: {
+        content: [
+          "Getting ready to start your weekend off right you decide to take Ellie for a walk in the park. You live in a small, but nice apartment in the compact downtown area of Tink Town.",
+          {
+            divert: "ellieIsABitBigFo"
+          }
+        ]
+      },
+      asYouFinishUpYou: {
+        content: [
+          "As you finish up your work you look to the sky for your faithful robit Yakkie. A high flyer he is sometimes hard to spot for others, but not for your superior optics. He also very vocal as he surfs the thermals.",
+          {
+            divert: "beforeYouKnewYak"
+          }
+        ]
+      },
+      theRobitsLookedA: {
+        content: [
+          ""The robits looked as if they were not awake. Eyes closed, just blindly following him. I tried to call out, but it seemed to make no difference to the robot or the robits in tow.",
+          {
+            divert: "theWorstPartWasI"
+          }
+        ]
+      },
+      butInThatTimeIHa: {
+        content: [
+          ""But in that time I have watched friends, both robits and robots alike, come and go. Some of our founding group started places like The Pattering Plant to pass on their knowledge. ",
+          {
+            divert: "howeverForMeIHav"
+          }
+        ]
+      },
+      youGentlyPickupA: {
+        content: [
+          "You gently pickup and pet a nearby robit. Tick Tock Titan turns and watches you intently as the robit rolls over and enjoys the attention. You carefully put the robit back down. Tick Tock Titan approaches you, "What are you doing here?"",
+          {
+            divert: "iveComeForMyToSe"
+          }
+        ]
+      },
+      youWonderIfYourR: {
+        content: [
+          "You wonder if your robit decided to got to his favorite place, the robit park. You head in that direction. When you get there you see some of your friends there also looking for their robit.",
+          {
+            divert: "youFindOutThatEv"
+          },
+          {
+            pageNum: 6
+          },
+          {
+            pageLabel: "Group Formation"
+          }
+        ]
+      },
+      asHeApproachesHe1: {
+        content: [
+          "As he approaches he doesn't see you and you run right into each other. The little guy can't handle this jolt to his already stressed systems. He picks himself up and runs at top speed away from you. Knowing if you were to chase or call out to him it would only make it worse.",
+          {
+            divert: "asYouWatchTheLit"
+          }
+        ]
+      },
+      youMakeItOutTheO: {
+        content: [
+          "You make it out the other side with a few scratches, but better than expected.",
+          {
+            linkPath: "thereIsALargeCro",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Continue to Pattering Plant"
+          }
+        ]
+      },
+      youContinueYourW: {
+        content: [
+          "You continue your way deeper toward the heart of the Whirring Waste.",
+          {
+            linkPath: "theWasteWhinesAn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Continue further into Whirring Waste"
+          }
+        ]
+      },
+      blankStitch: {
+        content: [
+          ""
+        ]
+      },
+      targetCareful2: {
+        content: [
+          "*-Target: 6 Careful-**--*",
+          {
+            linkPath: "youGentlyPickupA",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asSoonTickTockTi",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youLookAtTickToc",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      dontComeBackThis: {
+        content: [
+          ""Don't come back, this one is mine now"",
+          {
+            divert: "youContinueToSea"
+          }
+        ]
+      },
+      youClickAndClank: {
+        content: [
+          "You click and clank as you get up after a great recharge, but something isn't right. Usually you are awoken by your best friend, a robit named Atchoo.",
+          {
+            divert: "atchooHasBeenYou"
+          }
+        ]
+      },
+      thumpyIsMissingS: {
+        content: [
+          "“Thumpy is missing” she says.",
+          {
+            divert: "thumpyAndHasBeen"
+          }
+        ]
+      },
+      heHelloHaveYouSe: {
+        content: [
+          ""He-Hello, have you seen a little pony robit named Nelly? Probably not, oh dear...",
+          {
+            divert: "imSorryIForgotMy"
+          }
+        ]
+      },
+      afterTalkingAndL: {
+        content: [
+          "After talking and listening to Ribbit, he tells you, "There were reports of robits heading towards the Moaning Mines."",
+          {
+            linkPath: "youAvoidThisPlac",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Head to Moaning Mines"
+          }
+        ]
+      },
+      myNnameIsNeighNi: {
+        content: [
+          ""My n-name is Neigh Ni-Nibbler" he states.",
+          {
+            divert: "youIntroduceYour"
+          }
+        ]
+      },
+      thatWasWhenSomeO: {
+        content: [
+          ""That was when some of us figured out how those emotions were being created. We tried to teach the others, but it took us a long time to just wake one. That was when we came up with the robits. They were nothing but emotion, they served no purpose other than to express feelings no matter what.",
+          {
+            divert: "weConcentratedOn"
+          }
+        ]
+      },
+      youStepAroundThe: {
+        content: [
+          "You step around the corner and see a large group of robots heading towards Pattering Plant, the largest maker of robits this side of Botburg.",
+          {
+            divert: "youSeeYourParent"
+          }
+        ]
+      },
+      youCallOutToHimB: {
+        content: [
+          "You call out to him, but he seems to be lost somewhere far away. Again you call out, "Dent!" as you grab him by the shoulder.",
+          {
+            divert: "ohHelloHeReplies"
+          }
+        ]
+      },
+      asHeShootsOutOfT: {
+        content: [
+          "As he shoots out of the mine along a different path then the one you came down. You follow quickly behind him. He seems keen to keep close to his saviors, which puts your mind a little more at ease.",
+          {
+            divert: "havingThroughlyS"
+          }
+        ]
+      },
+      youAskHimIfHeHas: {
+        content: [
+          "You ask him if he has seen your robit.",
+          {
+            divert: "yesIHaveHeIsWith"
+          }
+        ]
+      },
+      isBeepBeebopInYo: {
+        content: [
+          "Is Beep Beebop in your party?",
+          {
+            linkPath: "beepBeebop",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Beep Beebop"
+          },
+          {
+            linkPath: "isClankClatterIn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "No"
+          }
+        ]
+      },
+      asYouSearchTheSk: {
+        content: [
+          "As you search the sky you see a large population of soaring robits off in the distance over the Moaning Mines.",
+          {
+            divert: "isVicVroomInYour"
+          }
+        ]
+      },
+      afterYourStopAtP: {
+        content: [
+          "After your stop at Pattering Plant, you are not sure which way to head. You are closest to Lullaby Lake a nice resort at this edge of town.",
+          {
+            linkPath: "theTripToLullaby",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Head to Lullaby Lake"
+          }
+        ]
+      },
+      canIJoinYouWeWil: {
+        content: [
+          ""Can I join you, we will have more luck together!"",
+          {
+            divert: "youAreExcitedToH"
+          }
+        ]
+      },
+      tickTockTitan: {
+        content: [
+          "*-Tick Tock Titan-*",
+          {
+            divert: "comeToMeComeToTi"
+          }
+        ]
+      },
+      fromHereItIsHard: {
+        content: [
+          "From here it is hard to tell, but Thumpy appears to be unhurt. Tick Tock Titan's movements seem soft and gentle. Fears for your robits safety fade, at least a little for now.",
+          {
+            divert: "withYourThoughts"
+          }
+        ]
+      },
+      narrowlyEscaping: {
+        content: [
+          "Narrowly escaping a meltdown because of your keen abilities, you feel more alive then ever before, and a /=feeling like you can take on anything=/.",
+          {
+            divert: "youContinueYourW"
+          }
+        ]
+      },
+      weConcentratedOn: {
+        content: [
+          ""We concentrated on emotions like compassion, joy, hope, and love. We taught them games and a general playfulness, that they could in turn teach to others.",
+          {
+            divert: "andRobitsDidThei"
+          }
+        ]
+      },
+      youBangAgainstTh: {
+        content: [
+          "You bang against the door trying to get it open. A hissing sound starts at the back of the room. Fearing for your life you throw yourself against the door. Eventually the door gives way just before flames start to shoot out of the furnace. ",
+          {
+            divert: "youEscapedButNot"
+          }
+        ]
+      },
+      targetSneaky: {
+        content: [
+          "*-Target: 5 Sneaky-*",
+          {
+            linkPath: "youCarefullyAppr",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youStepDownFromY",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      theyWereDarkTime: {
+        content: [
+          ""They were dark times, but the robots didn't know any better. They just did their job, mindless to the feelings that others had started to feel.",
+          {
+            divert: "thatWasWhenSomeO"
+          }
+        ]
+      },
+      targetCareful3: {
+        content: [
+          "*-Target: 9 Careful-*",
+          {
+            linkPath: "youGentlyPickupA",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asSoonTickTockTi",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youLookAtTickToc",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      youAskAarghWhere: {
+        content: [
+          "You ask Aargh where he came from, but he can't answer as he is knocked out from your forceful push.",
+          {
+            divert: "happilyAtchooJoi"
+          }
+        ]
+      },
+      heTookMyRobitRig: {
+        content: [
+          ""He took my robit right from my hands. I found this robit and decided to keep it for myself." He nods toward the back of the mine. With that he goes silent and almost seems relieved.",
+          {
+            divert: "youImmediatelySe"
+          }
+        ]
+      },
+      iAmNotYourFriend: {
+        content: [
+          ""I am not your friend," he replies.",
+          {
+            divert: "howAboutFellowRo"
+          }
+        ]
+      },
+      asYouMakeYourWay: {
+        content: [
+          "As you make your way through the thicket you find a piece of equipment hidden by the jumbled wires. When you turn it on, the indicator light changes to a gloomy grey color. The read out says physical pain.",
+          {
+            divert: "youMakeItOutTheO"
+          }
+        ]
+      },
+      theRobitsReturnW: {
+        content: [
+          "The robits return without him. Your robit immediately jumps into your arms as the rest seem to be heading out of the Waste.",
+          {
+            divert: "onYourTripHomeYo"
+          }
+        ]
+      },
+      seizingTheOpport: {
+        content: [
+          "Seizing the opportunity you take him down with a quick but effective move binding him so as to not cause you any more trouble.",
+          {
+            divert: "youImmediatelySe"
+          }
+        ]
+      },
+      youSeeNoSignOfTh: {
+        content: [
+          "You see no sign of Thumpy and start to head back inside. As you walk up your driveway you hear the distant sound of many a clanking foot walking down the street.",
+          {
+            divert: "youStepAroundThe"
+          }
+        ]
+      },
+      whatsWrongYouAsk: {
+        content: [
+          ""What's wrong?" you ask.",
+          {
+            divert: "iHePausesTryingT"
+          }
+        ]
+      },
+      howAreYouGoingTo: {
+        content: [
+          ""How are you going to do that? I know what has taken them, and where they have been taken. He is a robot of vast size and power, know as Tick Tock Titan"",
+          {
+            divert: "thereIsMoreThanO"
+          }
+        ]
+      },
+      youSeeIHaveBeenA: {
+        content: [
+          ""You see I have been around since before there were places like The Pattering Plant. When robits were not around and places like this Whirring Waste were in operation.",
+          {
+            divert: "theyWereDarkTime"
+          }
+        ]
+      },
+      youSeeADeviceHid: {
+        content: [
+          "You see a device hidden near the trap. You pick it up and turn it on. It is a /=Site Scanner=/ that helps you detect the trap. Not just one trap but 4 total. You carefully avoid each of the traps with your new found tool.",
+          {
+            divert: "withTheTrapBehin"
+          }
+        ]
+      },
+      yesIHaveHeIsWith: {
+        content: [
+          ""Yes, I have, he is with me right now, but will be returning to you very shortly," he answers.",
+          {
+            divert: "notSureOfHisInte"
+          }
+        ]
+      },
+      findAnExitMethod: {
+        content: [
+          "Find an exit method: *-Target 6 Quickly-*",
+          {
+            linkPath: "yourKeenOpticsSp",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asTheDoorClosesY1",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "asYouSearchYouHe1",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      feelingYouWereLu: {
+        content: [
+          "Feeling you were lucky not to have been more of a threat to him, you wander off searching other areas of the mine.",
+          {
+            divert: "havingThroughlyS"
+          }
+        ]
+      },
+      tickTockIsComple: {
+        content: [
+          "Tick Tock is completely involved in his actions, and does not notice your charge. With his back turned you jump on his back and start to struggle with him.",
+          {
+            divert: "heShakesLeftAndR"
+          }
+        ]
+      },
+      asYouMakeYourEsc: {
+        content: [
+          "As you make your escape you can hear Tick Tock Titan howling "It is my time! I will not be foiled again!"",
+          {
+            divert: "hisCriesBecomeSo"
+          }
+        ]
+      },
+      findingAControlP: {
+        content: [
+          "Finding a control panel you open its cover. As you poke and prod at the wires the furnace begins to hiss. You cross some wires which throws open the door, but also seriously shocks you. You make it out the door just as flames shoot from the furnace.",
+          {
+            divert: "youEscapedButNot"
+          }
+        ]
+      },
+      youQuietlyAndCar: {
+        content: [
+          "You quietly and carefully sneak behind some equipment that is laying around, eventually making it past the hulking Yeti.",
+          {
+            divert: "youImmediatelySe"
+          }
+        ]
+      },
+      youFailedToSeeOn: {
+        content: [
+          "You failed to see one of the 4 Snap Snares this crafty trapper had laying in wait. It quickly snaps you up and are left dangling in mid-air by your leg. This delays you even longer as you free yourself from its tight grip. ",
+          {
+            divert: "withTheTrapBehin"
+          }
+        ]
+      },
+      tinkTownIsAQuiet: {
+        content: [
+          "Tink Town is a quiet little place just outside the slick metal filled city of Botburg. Where Botburg is busy and exciting, Tink Town is relaxing and freeing. Nothing bad ever seems to happen in Tink Town... Usually",
+          {
+            divert: "butThisMorningSo"
+          },
+          {
+            pageNum: 1
+          },
+          {
+            pageLabel: "Setting"
+          }
+        ]
+      },
+      havingThroughlyS: {
+        content: [
+          "Having throughly searched the mines you feel there is not much more to discover here. Just about then is when you notice that the old Whirring Waste plant seems to be running again, as smoke billows from its' stacks.",
+          {
+            linkPath: "youHaveWanderedA",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Whirring Waste"
+          }
+        ]
+      },
+      asYouWatchItHits: {
+        content: [
+          "As you watch it hits you... Tick Tock is not controlling the robits, they are completely in sync. You have seen these patterns before, but in a much different way. These patterns are what all robots emit as they leave this world. Tick Tock Titan is preparing himself for his exit from these lands.",
+          {
+            divert: "whatYouDontKnowI"
+          }
+        ]
+      },
+      asHeApproachesHe: {
+        content: [
+          "As he approaches he almost doesn't see you standing right in front of him. Startled he lets out a neigh and jumps back.",
+          {
+            divert: "youQuicklySayImS"
+          }
+        ]
+      },
+      unableToRemember: {
+        content: [
+          "Unable to remember the trick of Itchy Ivy you push on.",
+          {
+            divert: "youMakeItOutTheO"
+          }
+        ]
+      },
+      dentDoNotFretAbo: {
+        content: [
+          ""Dent do not fret about your momentary lapse of willpower," you begin.",
+          {
+            divert: "anyoneWouldHaveS"
+          }
+        ]
+      },
+      youBelieveWhatHe: {
+        content: [
+          "You believe what he has said, and nod in acceptance. With that he returns and starts chanting as the robits start moving around him again.",
+          {
+            divert: "theChantingAndMo"
+          }
+        ]
+      },
+      theChantingAndMo: {
+        content: [
+          "The chanting and movement gets more feverish, then all of a sudden he goes silent. The robits rush up to catch Tick Tock Titan as he slumps into their embrace. His lights go out as they carry him away and out of the room.",
+          {
+            divert: "theRobitsReturnW"
+          }
+        ]
+      },
+      atFirstAarghIsRe: {
+        content: [
+          "At first Aargh is relentless, but after much discussion he starts to open up. The first thing that he gives you is a robit that he found and held till he could find his own robit. It is Atchoo, and he is very happy to see you.",
+          {
+            divert: "aarghEventuallyT"
+          }
+        ]
+      },
+      aLargeCloudOfSmo: {
+        content: [
+          "A large cloud of smoke swells from his stacks as he takes his time determining how to answer your question.",
+          {
+            divert: "allTheseRobitsWe"
+          }
+        ]
+      },
+      snapSnare: {
+        content: [
+          "*-Snap Snare-*",
+          {
+            divert: "feelingLikeThisW"
+          }
+        ]
+      },
+      heTurnsAndRoarsA: {
+        content: [
+          "He turns and roars at you. Deciding that it is best to leave before his roar becomes a bite, you turn and head back.",
+          {
+            divert: "feelingYouWereLu"
+          }
+        ]
+      },
+      asYourInitializa: {
+        content: [
+          "As your initialization cycle runs you notice that, besides yourself, all is too quite. You realize there are no robits around. ",
+          {
+            divert: "youNoisilyStartS"
+          }
+        ]
+      },
+      helloYouCallOutS: {
+        content: [
+          ""Hello," you call out startling the hefty robot.",
+          {
+            divert: "heTurnsAndRoarsA"
+          }
+        ]
+      },
+      aFewWeeksPassAnd: {
+        content: [
+          "A few weeks pass and everyone in Tink Town is happy that all their robits are ok, and back in their lives. Rumors of a deep cry is heard to be coming from the Whirring Waste.",
+          {
+            divert: "ifGivenTheOpport"
+          }
+        ]
+      },
+      asYouSlowlyAppro1: {
+        content: [
+          "As you slowly approach Tick Tock Titan he seems agitated with your presence. You see his eyes start to glow red as he rounds off to face you. Just then a robit that you rescued, shoots out from behind you and quickly jumps into the large robots arms.*--*",
+          {
+            divert: "targetCareful2"
+          }
+        ]
+      },
+      iSeeTheAgonyInYo: {
+        content: [
+          ""I see the agony in your optics," he finally says.",
+          {
+            divert: "iKnowWhatYouFeel"
+          }
+        ]
+      },
+      thisAbandonRecyc: {
+        content: [
+          "This abandon recycling center is littered with old equipment and empty shells of forgotten machines. There are stories and legends of evil that was once done here. This graveyard of a graveyard hides a great many secrets.",
+          {
+            divert: "dentDing"
+          }
+        ]
+      },
+      thisWasSomeCraft: {
+        content: [
+          "This was some crafty trapper. The first snare you found was just a decoy, there were 3 other Snap Snares laying in wait that your keen sensors observed.",
+          {
+            divert: "withTheTrapBehin"
+          }
+        ]
+      },
+      myNellyIsEveryth: {
+        content: [
+          ""My Nelly is everything to me, I must find him." he says in a very determined way.",
+          {
+            divert: "iAmDoingJustThat"
+          }
+        ]
+      },
+      asYouSlowlyDesce: {
+        content: [
+          "As you slowly descend into the mine, you see the hulking robot. You call out to him, "Hello friend."",
+          {
+            divert: "iAmNotYourFriend"
+          }
+        ]
+      },
+      beepBeebop: {
+        content: [
+          "*-Beep Beebop-*",
+          {
+            divert: "afterALongDayAtS"
+          },
+          {
+            pageNum: 2
+          },
+          {
+            pageLabel: "Beep Beebop"
+          }
+        ]
+      },
+      youSayGoodbyeToA: {
+        content: [
+          "You say goodbye to Aargh and continue to the Pattering Plant",
+          {
+            linkPath: "thereIsALargeCro",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Enter the Pattering Plant"
+          }
+        ]
+      },
+      showingNoFearOfY: {
+        content: [
+          "Showing no fear of your current surroundings, you immediately stick out your arm and introduce yourself. Tick Tock Titan seems reluctant but does the same.",
+          {
+            divert: "youAskHimIfHeHas"
+          }
+        ]
+      },
+      youFindNoFriendN: {
+        content: [
+          "You find no friend nor robit in or around your messy little shack. While outside looking through the miscellaneous parts stored in your yard, there is something that strikes you as out of place. Down the road you can hear the old abandon Whirring Waste whirring away. That old recycling center hasn't seen any action in a long time, but there it is, loud as anything, smoke stacks billowing away.",
+          {
+            divert: "isHumHarumphInYo"
+          }
+        ]
+      },
+      youShutTheDoorTo: {
+        content: [
+          "You shut the door to your room and wait out the furnace. It takes some time, but eventually the furnace shuts down and its main door opens up. You exit the furnace happy that you have not been melted down to a pool of metal.",
+          {
+            divert: "youContinueYourW"
+          }
+        ]
+      },
+      sneakPastTargetS: {
+        content: [
+          "Sneak past. *-Target: 1 Sneaky-*",
+          {
+            linkPath: "asYouQuietlySnea",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "unsuccessfulInYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      howeverForMeIHav: {
+        content: [
+          ""However for me... I have waited, waited for the right robot to take over for me. That robot was Ribbit Robbot. He has the greatest capacity for sympathy that I have ever seen, far greater than mine. I knew he would look after the robits and train others in this art as I have.",
+          {
+            divert: "myTimeHasComeAnd"
+          }
+        ]
+      },
+      youFollowHimAndF: {
+        content: [
+          "You follow him and follow up with, "Of course they are not all yours, actually robit is right there."",
+          {
+            divert: "notTurningHeSays"
+          }
+        ]
+      },
+      youAskTheYetiIfH: {
+        content: [
+          "You ask the yeti if he has seen any robits here.",
+          {
+            divert: "iFoundThisOneRob"
+          }
+        ]
+      },
+      iFoundThisOneRob: {
+        content: [
+          ""I found this one robit. If he is yours you may take him." he says.",
+          {
+            divert: "youImmediatelySe"
+          }
+        ]
+      },
+      imSorryIForgotMy: {
+        content: [
+          ""I'm Sorry, I forgot my manners my name is Neigh Nibbler"",
+          {
+            divert: "youIntroduceYour1"
+          }
+        ]
+      },
+      youQuicklyJumpOn: {
+        content: [
+          "You quickly jump on Tick Tock Titan. He hardly seems to notice as you try to yank him left and right.",
+          {
+            divert: "hePushesYouOffTo"
+          }
+        ]
+      },
+      iHePausesTryingT: {
+        content: [
+          ""I... " he pauses trying to find the words. "I was at the Whirring Waste looking for some needed parts and wishing that I could find my robit Ducky. All of a sudden a huge robot shoots past me carrying with him what seemed to be almost a hundred robits. Then many more robits came right after, following him as they all steamed past me.",
+          {
+            divert: "theRobitsLookedA"
+          }
+        ]
+      },
+      allOfASuddenYouA: {
+        content: [
+          "All of a sudden you are bumped into one of the containers that is rolling around on the old track system like a rail cart. It knocks you into a large machine that clamps its huge door shut.",
+          {
+            linkPath: "findAnExitMethod",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Quickly"
+          },
+          {
+            linkPath: "forceTheDoorOpen",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Forceful"
+          },
+          {
+            linkPath: "bypassControlsTa",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Clever"
+          }
+        ]
+      },
+      youStepDownFromY: {
+        content: [
+          "You step down from your high perch, but miss that there is a robit watching you closely from just below the top step. Avoiding him you trip and fall down all the stairs. Dazed you slowly realize that Tick Tock is standing directly in front of you.",
+          {
+            linkPath: "youQuicklyJumpOn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Forceful"
+          },
+          {
+            linkPath: "targetFlashy",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Flashy"
+          }
+        ]
+      },
+      unableToConsoleD: {
+        content: [
+          "Unable to console Dent, he runs off away from Whirring Waste. You shout out to him, "Don't worry Dent, this will be solved, you will see Ducky, very soon!"",
+          {
+            divert: "withThisNewInfor"
+          }
+        ]
+      },
+      withTheTrapBehin: {
+        content: [
+          "With the trap behind you, your start to head away from Lullaby Lake. You pause to check your fuel cells and distinctly hear the call of a robit coming from the direction of the Moaning Mines.",
+          {
+            linkPath: "findingNoInforma",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Moaning Mines"
+          }
+        ]
+      },
+      fizzingFurnace: {
+        content: [
+          "*-Fizzing Furnace-*",
+          {
+            divert: "allOfASuddenYouA"
+          }
+        ]
+      },
+      youHearAScreechO: {
+        content: [
+          "You hear a screech of motors starting in the distance as a breeze slowly enters the room. As you feel the warm air move the floor beneath you begins to clear. Hundreds of robits are running all around, and in the middle of them all is a huge bulk of a robot.",
+          {
+            divert: "tickTockTitan"
+          }
+        ]
+      },
+      talkWithHimTarge: {
+        content: [
+          "Talk with him: *-Target 4 Careful-*",
+          {
+            linkPath: "asHeApproachesHe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asHeApproachesYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "asHeApproachesHe1",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      iHaveSeenThatLoo: {
+        content: [
+          ""I have seen that look in the robits eye's before. It was almost like when an owner gives a return call to their robit, they must follow it. /=The robit's return call must have been overridden by that robot somehow=/."",
+          {
+            divert: "withThisNewInfor"
+          }
+        ]
+      },
+      feelingLikeThisW: {
+        content: [
+          "Feeling like this was a wasted trip you start to turn back, but you stumble upon an old trappers snare.",
+          {
+            linkPath: "avoidItTargetCar",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Careful"
+          },
+          {
+            linkPath: "defuseItTargetCl",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Clever"
+          }
+        ]
+      },
+      unsuccessfulInYo: {
+        content: [
+          "Unsuccessful in your attempt you have to retreat.",
+          {
+            linkPath: "itchyIvy",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Itchy Ivy"
+          }
+        ]
+      },
+      myTimeHasComeAnd: {
+        content: [
+          ""My time has come and I wanted to have this passing ceremony with all the robits, I was foiled in my plans once before, but now it must happen. Will you allow my final wish?"",
+          {
+            divert: "youAreLeftSpeech"
+          }
+        ]
+      },
+      vicVroom: {
+        content: [
+          "*-Vic Vroom-*",
+          {
+            divert: "gettingReadyToSt"
+          },
+          {
+            pageNum: 5
+          },
+          {
+            pageLabel: "Vic Vroom"
+          }
+        ]
+      },
+      youFindOutThatEv: {
+        content: [
+          "You find out that everyone is missing their robit. You decide to track down your missing robit.",
+          {
+            divert: "whoIsGoingToLead"
+          }
+        ]
+      },
+      thisSimpleLifeHa: {
+        content: [
+          "This simple life has afforded you the chance to learn, more specifically read. You love to read, you love gaining knowledge. Some knowledge is put into action on the farm, while other bits are used to exercise your processor.",
+          {
+            divert: "thisMorningYouAr"
+          }
+        ]
+      },
+      iveComeForMyToSe: {
+        content: [
+          ""I've come for my to see why you have taken mine, and everyone else's robits."",
+          {
+            divert: "aLargeCloudOfSmo"
+          }
+        ]
+      },
+      dentSlowlyBegins: {
+        content: [
+          "Dent slowly begins to smile, his shoulders straighten, his head rises, "I will join you, we will get our robits back, together!"",
+          {
+            divert: "asYouConsoleDent"
+          }
+        ]
+      },
+      overpowerTargetF: {
+        content: [
+          "Overpower: *-Target 5 Forceful-*",
+          {
+            linkPath: "youChargeDownThe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "withTheGreatestO",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "asYouApproachThe1",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      theDoorFromYourB: {
+        content: [
+          "The door from your bedroom is open, as you walk out, you see that the door to your apartment is open as well. You begin to panic as you search for her quickly.",
+          {
+            divert: "whenYouLookOutTh"
+          }
+        ]
+      },
+      targetFlashy: {
+        content: [
+          "*-Target: 6 Flashy-*",
+          {
+            linkPath: "showingNoFearOfY",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "makingGoodASolid",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      youImmediatelySe: {
+        content: [
+          "You immediately see he was guarding a robit. Hidden in a cage down the mine shaft is Yakkie. Yakkie is a strong and powerful flyer that is happy to be free.",
+          {
+            divert: "asHeShootsOutOfT"
+          }
+        ]
+      },
+      describeYourDete: {
+        content: [
+          "Describe your determination: *-Target 2 Flashy-*",
+          {
+            linkPath: "afterTalkingAndL",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youDescribeToRib",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youTryToStartACo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      youHaveAnImpress: {
+        content: [
+          ""You have an impressive collection of robits" you say.",
+          {
+            divert: "withoutRespondin"
+          }
+        ]
+      },
+      defuseItTargetCl: {
+        content: [
+          "Defuse it: *-Target: 4 Clever-**--*",
+          {
+            linkPath: "youQuicklyDiscov",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "inOrderToDetectA",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youFailedToSeeOn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      yesTickTockItIsM: {
+        content: [
+          ""Yes, Tick Tock, it is me. What are you doing here with everyone's robits?"*--*",
+          {
+            divert: "targetCareful1"
+          }
+        ]
+      },
+      asSoonTickTockTi: {
+        content: [
+          "As soon Tick Tock Titan and you lock stares, you both see the pain and sorrow in each other. Tick Tock can guess at yours as you stare at your robit.",
+          {
+            divert: "iSeeTheAgonyInYo"
+          }
+        ]
+      },
+      youStartAtASprin: {
+        content: [
+          "You start at a sprint to get out, and you narrowly escape his grasp. Thankfully he is much slower than you, quickly putting some distance between you he stops his chase, and screams back at you.",
+          {
+            divert: "dontComeBackThis"
+          }
+        ]
+      },
+      ellieIsABitBigFo: {
+        content: [
+          "Ellie is a bit big for your apartment, but she doesn't seem to mind, and neither do you.*--*",
+          {
+            divert: "afterHavingMadeI"
+          }
+        ]
+      },
+      dentDing: {
+        content: [
+          "*-Dent Ding-*",
+          {
+            divert: "asYouStartToAppr"
+          }
+        ]
+      },
+      asYouConsoleDent: {
+        content: [
+          "As you console Dent, he elaborates on the robits connection with the large robot.",
+          {
+            divert: "iHaveSeenThatLoo"
+          }
+        ]
+      },
+      inOrderToDetectA: {
+        content: [
+          "In order to detect and defuse all the traps you quickly whip up a device that will detect these kinds of devices for you. The /=Site Scanner=/ successfully shows you where each of the traps are any you easily defuse them all.",
+          {
+            divert: "withTheTrapBehin"
+          }
+        ]
+      },
+      withThisNewInfor: {
+        content: [
+          "With this new information you continue toward the Whirring Waste knowing that you face a tough enemy.",
+          {
+            linkPath: "youCautiouslyApp",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Continue to Whirring Waste"
+          }
+        ]
+      },
+      youAssureHimThat: {
+        content: [
+          "You assure him that both his and your robits are safe and sound and that they will show up.",
+          {
+            divert: "heThenTellsYouOf"
+          }
+        ]
+      },
+      asYouStartToExpl: {
+        content: [
+          "As you start to explore it seems mostly deserted except for some far off machinery making noise. You stumble upon a trail that leads you deep into the mines. It is dark, and the dull light from the mining equipment is all that illuminates your path.",
+          {
+            divert: "yappingYeti"
+          }
+        ]
+      },
+      askHimWhatIsWron: {
+        content: [
+          "Ask him what is wrong. *-Target: 3 Careful-*",
+          {
+            linkPath: "atFirstAarghIsRe",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "unsuccessfulInYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      theReasonINeedTh: {
+        content: [
+          ""The reason I need them, is it is finally my time to depart this world and be allowed to rest peacefully. There is nothing that I can do to stop this process, it has been a long time coming, and I am glad it is here. When the robits finish their tasks, they will all return to their current owners, without any more troubles."",
+          {
+            divert: "youBelieveWhatHe"
+          }
+        ]
+      },
+      hePausesAllowing: {
+        content: [
+          "He pauses allowing you to reflect on his words. This explains his past, but not his present actions.",
+          {
+            divert: "heContinuesAllTh"
+          }
+        ]
+      },
+      youQuicklySayImS: {
+        content: [
+          "You quickly say, "I'm sorry, I didn't mean to surprise you."",
+          {
+            divert: "thThThatsOkayHeT"
+          }
+        ]
+      },
+      theRobitsTakeOff: {
+        content: [
+          "The robits take off in different directions, probably headed to their homes. Your robit is now safe. You return home wondering if this will be the last you hear of Tick Tock Titan."
+        ]
+      },
+      thinkingThumpyIs: {
+        content: [
+          "Thinking Thumpy is playing one of his hide and seek games you help Blip look. After throughly searching the house you can’t locate Thumpy.",
+          {
+            divert: "iAmSureThumpyWil"
+          }
+        ]
+      },
+      unableToControlY: {
+        content: [
+          "Unable to control your feelings, you rush down and charge the abductor of your cherished robit.",
+          {
+            divert: "targetForceful"
+          }
+        ]
+      },
+      aarghSaysRibbitM: {
+        content: [
+          "Aargh says: *-"-*/=Ribbit may not know a lot, but he is always very helpful.=/"",
+          {
+            divert: "youSayGoodbyeToA"
+          }
+        ]
+      },
+      iHaveLostMyRobit: {
+        content: [
+          ""I have lost my robit, and I am looking for him," you reply.",
+          {
+            divert: "lostShowsWhatYou"
+          }
+        ]
+      },
+      tickTockTitanIsA: {
+        content: [
+          ""/=Tick Tock Titan Is a big teddy bear if treated kindly=/."",
+          {
+            divert: "afterTalkingAndL"
+          }
+        ]
+      },
+      theTripToLullaby: {
+        content: [
+          "The trip to Lullaby Lake takes longer than you expected. Lullaby Lake is a vacation destination for many, and this is the height of their season, however, when you arrive there is hardly anyone around.",
+          {
+            divert: "afterMuchSearchi"
+          },
+          {
+            pageNum: 9
+          },
+          {
+            pageLabel: "1.1.a LL Snap Snare"
+          }
+        ]
+      },
+      youContinueToTry: {
+        content: [
+          "You continue to try and talk with him, but he never responds. He sits and starts chanting, not sure what is going on all the robits in the room start to circle around Titan.",
+          {
+            divert: "theChantingAndMo1"
+          }
+        ]
+      },
+      theChantingAndMo1: {
+        content: [
+          "The chanting and movement gets more feverish, then all of a sudden he goes silent. The robits rush up to catch Tick Tock Titan as he slumps into their embrace. His lights go out as they carry him away and out of the room.",
+          {
+            divert: "theRobitsReturnW1"
+          }
+        ]
+      },
+      ifGivenTheOpport: {
+        content: [
+          "If given the opportunity to have your adventure again, would you do anything differently, would things have worked out as well? You wonder as you watch your robit happily playing away."
+        ]
+      },
+      butThisMorningSo: {
+        content: [
+          "But this morning something is different. Your robit is not around.",
+          {
+            divert: "isBeepBeebopInYo"
+          }
+        ]
+      },
+      targetForceful: {
+        content: [
+          "*-Target: 8 Forceful-*",
+          {
+            linkPath: "tickTockIsComple",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youQuicklyJumpOn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      youCarefullyAppr: {
+        content: [
+          "You carefully approach from behind. The robits pay you no mind. Thumpy looks in your direction but seems preoccupied with Tick Tock Titan.",
+          {
+            divert: "youQuicklyJumpOn"
+          }
+        ]
+      },
+      yappingYeti: {
+        content: [
+          "*-Yapping Yeti-*",
+          {
+            divert: "asYouHeadDownThe"
+          }
+        ]
+      },
+      forceTheDoorOpen: {
+        content: [
+          "Force the door open: *-Target 7 Forceful-*",
+          {
+            linkPath: "asTheDoorClosesY",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youBangAgainstTh",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      asTheDoorClosesY1: {
+        content: [
+          "As the door closes you immediately start taking in your surroundings. As you look to the back of the machine you see a small flame, like that of a pilot light. Realizing that is exactly what it is, you start looking for an emergency shutdown.",
+          {
+            divert: "asYouSearchYouHe"
+          }
+        ]
+      },
+      asYouContinueYou: {
+        content: [
+          "As you continue you find yourself caught in something.",
+          {
+            linkPath: "itchyIvy",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Itchy Ivy"
+          }
+        ]
+      },
+      sneakByTargetSne: {
+        content: [
+          "Sneak by: *-Target 5 Sneaky-*",
+          {
+            linkPath: "youQuietlyAndCar",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asYouAttemptToQu",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      targetClever: {
+        content: [
+          "*-Target: 4 Clever-*",
+          {
+            linkPath: "fromHereItIsHard",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "unableToControlY",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      notThatIWasTheir: {
+        content: [
+          ""Not that I was their owner, but I was their caretaker. It was my job to help them when the first awakened. I would watch as their power force came online. I was the first robot they saw as they entered our world. These robits were my life for a very long time. Many of the robits I cared for have now left this world."",
+          {
+            divert: "hePausesAllowing"
+          }
+        ]
+      },
+      beforeYouKnewYak: {
+        content: [
+          "Before you knew Yakkie, you were once working on the farm as usual, when one of the wind traps let loose and fell on you. Yakkie saved your by bringing your brother to help. Since then Yakkie as always kept close, and you have grown very fond of his watchful eye.",
+          {
+            divert: "youAreSurprisedT"
+          }
+        ]
+      },
+      whatHappenedToYo: {
+        content: [
+          ""What happened to you?" you ask him carefully.",
+          {
+            divert: "tickTockTickTock"
+          }
+        ]
+      },
+      howAboutFellowRo: {
+        content: [
+          ""How about fellow robit protector," you guess at his intentions.",
+          {
+            divert: "iAmOnAQuestToGet"
+          }
+        ]
+      },
+      youSeeYourParent: {
+        content: [
+          "You see your parents coming up the road as you head back in to check on Blip. Blip has calmed down a little and the arrival of your parents help soothe her even more.",
+          {
+            divert: "isClankClatterIn"
+          }
+        ]
+      },
+      notSureOfHisInte: {
+        content: [
+          "Not sure of his intentions you decide to ask him directly why he has taken your robit, and everyone else's.",
+          {
+            linkPath: "justAsYouAreAbou",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Is Ribbit Robbot in your group?"
+          },
+          {
+            linkPath: "asYouSlowlyAppro1",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Do you have any Robits?"
+          },
+          {
+            linkPath: "targetCareful3",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Neither"
+          }
+        ]
+      },
+      youFinallyGetThe: {
+        content: [
+          "You finally get the attention of one of the more kindly looking workers.",
+          {
+            divert: "ribbitRobbot"
+          }
+        ]
+      },
+      allTheseRobitsWe: {
+        content: [
+          ""All these robit's were first mine," he finally lets out.",
+          {
+            divert: "notThatIWasTheir"
+          }
+        ]
+      },
+      onYourTripHomeYo1: {
+        content: [
+          "On your trip home you try to work out what just happened, but many questions remain unanswered. You enjoy watching your robit jump and play like nothing ever happened."
+        ]
+      },
+      knowingMoreThanJ: {
+        content: [
+          "Knowing more than just your robit should be freed, you decide to wrangle with the large robot. You hope this will allow the robits to escape.",
+          {
+            divert: "targetSneaky"
+          }
+        ]
+      },
+      youFallToTheGrou: {
+        content: [
+          "You fall to the ground with a thump as the titan lets out a ghastly roar. You dive to catch Thumpy as he falls from the robots arms.",
+          {
+            divert: "youImmediatelySt"
+          }
+        ]
+      },
+      happilyAtchooJoi: {
+        content: [
+          "Happily Atchoo joins you in your quest to discover what has happened to all the robits.",
+          {
+            divert: "havingSuccessful"
+          }
+        ]
+      },
+      sympathizeWithRi: {
+        content: [
+          "Sympathize with Ribbit: *-Target 3 Careful-*",
+          {
+            linkPath: "afterTalkingAndL",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "areYouMissingARo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youTryToStartACo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      ribbitRobbotIsTh: {
+        content: [
+          ""Ribbit Robbot, is that you?" he asks gently",
+          {
+            divert: "yesTickTockItIsM"
+          }
+        ]
+      },
+      asTheDoorClosesY: {
+        content: [
+          "As the door closes, you quickly move to the door and try to pry it open. Gas begins to hiss it's way through the pipes. A sudden rush of strength allows you to throw open the door and rush out, just as flames begin to shoot out of the furnace.",
+          {
+            divert: "narrowlyEscaping"
+          }
+        ]
+      },
+      clankClatter: {
+        content: [
+          "*-Clank Clatter-*",
+          {
+            divert: "youClickAndClank"
+          },
+          {
+            pageNum: 3
+          },
+          {
+            pageLabel: " Clank Clatter"
+          }
+        ]
+      },
+      asYouNearThePatt: {
+        content: [
+          "As you near the Pattering Plant you can hear someone who seems to be arguing with himself or anyone who might be near him. He is saying something about the missing robits, but you can't quite make it out as his speech is of a very pirating nature. He is blocking your path to the entrance of Pattering Plant.",
+          {
+            linkPath: "tryToPushYourWay",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Forceful"
+          },
+          {
+            linkPath: "askHimWhatIsWron",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Careful"
+          },
+          {
+            linkPath: "argueBackAtHimTa",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Clever"
+          },
+          {
+            linkPath: "sneakPastTargetS",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Sneaky"
+          }
+        ]
+      },
+      withYourThoughts: {
+        content: [
+          "With your thoughts collected, and your mind resolved you try to work out how to best proceed with the large robot before you.",
+          {
+            linkPath: "targetFlashy",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Flashy"
+          },
+          {
+            linkPath: "knowingMoreThanJ",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Sneaky"
+          }
+        ]
+      },
+      isClankClatterIn: {
+        content: [
+          "Is Clank Clatter in your party?",
+          {
+            linkPath: "clankClatter",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Clank Clatter"
+          },
+          {
+            linkPath: "isHumHarumphInYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "No"
+          }
+        ]
+      },
+      areYouMissingARo: {
+        content: [
+          ""Are you missing a robit too?" you ask.",
+          {
+            divert: "yesRibbieIsGoneT"
+          }
+        ]
+      },
+      youAreExcitedToH: {
+        content: [
+          "You are excited to have his help as Neigh Nibbler joins you.",
+          {
+            divert: "heContinuesByTel"
+          }
+        ]
+      },
+      iAmOnAQuestToGet: {
+        content: [
+          ""I am on a quest to get back not just my robit, but find out what has happened to all of the robits," you say with conviction.",
+          {
+            divert: "howAreYouGoingTo"
+          }
+        ]
+      },
+      asYouSlowlyAppro: {
+        content: [
+          "As you slowly approach, the large robot calls out, "Whose there?"",
+          {
+            divert: "iHaveLostMyRobit"
+          }
+        ]
+      },
+      aarghArguer: {
+        content: [
+          "*-Aargh Arguer-*",
+          {
+            divert: "asYouNearThePatt"
+          }
+        ]
+      },
+      asYouStartToAppr: {
+        content: [
+          "As you start to approach the Whirring Waste, you see an old friend heading towards you. It is Dent Ding, a scrapper that always seems to be able to find you parts for your needs.",
+          {
+            divert: "withHisHeadHungL"
+          }
+        ]
+      },
+      youEscapedButNot: {
+        content: [
+          "You escaped, but not before<i> you damage some of your internal components</i>.",
+          {
+            divert: "youContinueYourW"
+          }
+        ]
+      },
+      youHaveWanderedA: {
+        content: [
+          "You have wandered all over Tink Town in your quest to find your robit, and solve this puzzle. As much as you want this to end and everything to be back to normal, you hope that the answer does not lie somewhere in the Whirring Waste.",
+          {
+            divert: "thisAbandonRecyc"
+          },
+          {
+            pageNum: 12
+          },
+          {
+            pageLabel: " 1.1.1.1.a WW Dent Ding"
+          }
+        ]
+      },
+      youSeemPowerfulA: {
+        content: [
+          ""You seem powerful and you might have a chance, but he will be hard to overpower. Yet he has a weakness, his parts grow old and worn. He is large, but slow and methodical. /=He was built for a powerful gentleness=/.",
+          {
+            divert: "heTookMyRobitRig"
+          }
+        ]
+      },
+      tryToPushYourWay: {
+        content: [
+          "Try to push your way past. *-Target: 2 Forceful-**--*",
+          {
+            linkPath: "havingSuccessful",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "asYouPushYourWay",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success +2"
+          },
+          {
+            linkPath: "unsuccessfulInYo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      avoidItTargetCar: {
+        content: [
+          "Avoid it: *-Target: 4 Careful-*",
+          {
+            linkPath: "thisWasSomeCraft",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youSeeADeviceHid",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "youFailedToSeeOn",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      findingNoInforma: {
+        content: [
+          "Finding no information at Lullaby Lake you decide to head to the Moaning Mines.",
+          {
+            divert: "youAvoidThisPlac"
+          },
+          {
+            pageNum: 10
+          },
+          {
+            pageLabel: " 1.1.1.a MM Neigh Nibbler"
+          }
+        ]
+      },
+      youTryToStartACo: {
+        content: [
+          "You try to start a conversation with Ribbit, but he is more concerned about your robit. You describe your missing robit, and he tries to reassure you that they will figure out what is going on.",
+          {
+            divert: "afterYourStopAtP"
+          }
+        ]
+      },
+      heSlowsDownAndYo: {
+        content: [
+          "He slows down and you are focused like you have never been before. Taking the opportunity you jump up and try to wrestle the big robot to the ground. The quick movement break something off of the titans back.",
+          {
+            divert: "atThatMomentAllT"
+          }
+        ]
+      },
+      youIntroduceYour1: {
+        content: [
+          "You introduce yourself and as he and you talk he seems to calm down.",
+          {
+            divert: "myNellyIsEveryth"
+          }
+        ]
+      },
+      thinkWayThroughT: {
+        content: [
+          "Think way through: *-Target 2 Clever-*",
+          {
+            linkPath: "youRememberATric",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "unableToRemember",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      rallyDentTargetF: {
+        content: [
+          "Rally Dent: *-Target 5 Flashy-*",
+          {
+            linkPath: "asYouConsoleDent",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "dentDoNotFretAbo",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "unableToConsoleD",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      rightAboutThenYo: {
+        content: [
+          "Right about then you see a little robot coming up the path. You quickly dive off into the shadows as your flight procedures kick in. You can see he is shivering and shaking with a look of fear in his optics.",
+          {
+            linkPath: "talkWithHimTarge",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Careful"
+          }
+        ]
+      },
+      carefullyWatchin: {
+        content: [
+          "Carefully watching from your outlook you can see that Tick Tock is holding onto something. Focusing on his arms you see two floppy flaps and a cute little nose. It is Thumpy in his arms!",
+          {
+            divert: "targetClever"
+          }
+        ]
+      },
+      youAvoidThisPlac: {
+        content: [
+          "You avoid this place because of the foul air that wisps around you making you feel uneasy at every turn. There is loud creaking and clanging that seems to come from everywhere. Either way you decide to overcome your fears and push on.",
+          {
+            divert: "neighNibbler"
+          }
+        ]
+      },
+      bypassControlsTa: {
+        content: [
+          "Bypass controls: *-Target 6 Clever-*",
+          {
+            linkPath: "youFindAControlP",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youPopOpenTheCov",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success+"
+          },
+          {
+            linkPath: "findingAControlP",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      aarghEventuallyT: {
+        content: [
+          "Aargh eventually tells you that the robot to talk to at the Pattering Plant is Ribbit Robbot. ",
+          {
+            divert: "aarghSaysRibbitM"
+          }
+        ]
+      },
+      withoutRespondin: {
+        content: [
+          "Without responding he turns away and starts to walk back to the center of the room.",
+          {
+            divert: "youFollowHimAndF"
+          }
+        ]
+      },
+      youChargeDownThe: {
+        content: [
+          "You charge down the mine shaft directly for the shadow. His size takes you by surprise as he reaches down to snatch you up. But he is slow and you easily out maneuver him.",
+          {
+            divert: "seizingTheOpport"
+          }
+        ]
+      },
+      youRememberATric: {
+        content: [
+          "You remember a trick of throwing sparks out into the ivy that makes it shrink away. With this trick you easily maneuver through the field of wires.",
+          {
+            divert: "asYouMakeYourWay"
+          }
+        ]
+      },
+      neighNibbler: {
+        content: [
+          "*-Neigh Nibbler-*",
+          {
+            divert: "rightAboutThenYo"
+          }
+        ]
+      },
+      beamsOfLightShoo: {
+        content: [
+          "Beams of light shoot from windows along the left side of the room. The light illuminates a blanket of dust that is floating just above the floor. Steam is puffing from the center of the room, rising to the ceiling before slowly exiting vents above the gangplanks.",
+          {
+            divert: "youHearAScreechO"
+          }
+        ]
+      },
+      patteringPlantIs: {
+        content: [
+          "Pattering Plant is the largest maker of robits in Tink Town and the place where yours was made. Thinking they must have some answers you set off eastward towards their facility.",
+          {
+            divert: "aarghArguer"
+          },
+          {
+            pageNum: 7
+          },
+          {
+            pageLabel: " 1.a PP Aargh Arguer"
+          }
+        ]
+      },
+      youRaceOutOfTheW: {
+        content: [
+          "You race out of the Whirring Waste and head home happy to have your robit back safe and sound. All the other robits seem to know where they are going and head off in all directions.",
+          {
+            divert: "aFewWeeksPassAnd"
+          }
+        ]
+      },
+      heContinuesAllTh: {
+        content: [
+          "He continues, "All these robits you see before you are the ones that have answered my call. I called them to me from a very deep-seated behaviour that is embeded in every robit that I have had the priveledge to look after. I only triggered this in my time of need, and mean none of the robits any harm.",
+          {
+            divert: "theReasonINeedTh"
+          }
+        ]
+      },
+      iAmSureThumpyWil: {
+        content: [
+          "“I am sure Thumpy will turn up,” you console her. Distracting her with a healthy morning fluid check, you head outside to have a look around.",
+          {
+            divert: "youSeeNoSignOfTh"
+          }
+        ]
+      },
+      ohHelloHeReplies: {
+        content: [
+          ""Oh, hello," he replies timidly.",
+          {
+            divert: "whatsWrongYouAsk"
+          }
+        ]
+      },
+      iAmDoingJustThat: {
+        content: [
+          ""I am doing just that, I am going to find my robit" you reply.",
+          {
+            divert: "canIJoinYouWeWil"
+          }
+        ]
+      },
+      pushWayThroughTa: {
+        content: [
+          "Push way through: *-Target 2 Forceful-*",
+          {
+            linkPath: "asYouMakeYourWay",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "youMakeItOutTheO",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      havingSuccessful: {
+        content: [
+          "Having successfully walked through Aargh. You make it to the entrance of the Pattering Plant.",
+          {
+            linkPath: "thereIsALargeCro",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Enter the Pattering Plant"
+          }
+        ]
+      },
+      withHisHeadHungL: {
+        content: [
+          "With his head hung low and his shoulders slumped, something is definitely wrong with this normally happy go lucky robot.",
+          {
+            divert: "youCallOutToHimB"
+          }
+        ]
+      },
+      youRememberThatY: {
+        content: [
+          "You remember that your parents had an errand to run this morning and put you in charge.",
+          {
+            divert: "youSleepilyGetUp"
+          }
+        ]
+      },
+      youCautiouslyApp: {
+        content: [
+          "You cautiously approach the Whirring Waste. The machinery seems to have come to life and is working away on... nothing. The machines are swaying back and forth, containers are moving around, but there is nothing in them, no work to be done.",
+          {
+            divert: "fizzingFurnace"
+          },
+          {
+            pageNum: 13
+          },
+          {
+            pageLabel: "1.1.1.1.b WW Fizzing Furnace"
+          }
+        ]
+      },
+      asYouPushYourWay: {
+        content: [
+          "As you push your way past Aargh you knock him over. With this action out pops a robit from some hidden compartment inside of Aargh. Atchoo the robit dog jumps into your arms and seems to be the happiest robit you have ever seen.",
+          {
+            divert: "youAskAarghWhere"
+          }
+        ]
+      },
+      heContinuesByTel: {
+        content: [
+          "He continues by telling you how he lost Nelly.",
+          {
+            divert: "tickTockTickTock"
+          }
+        ]
+      },
+      whoIsGoingToLead: {
+        content: [
+          "Who is going to lead the charge to find the missing robits?",
+          {
+            linkPath: "blankStitch",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Beep Beebop"
+          }
+        ]
+      },
+      thumpyAndHasBeen: {
+        content: [
+          "Thumpy and has been your pet robit since your first cycle was processed. The two of you played and learned together. Blip plays and learns with Thumpy since you are off with so many activities, but the connection you two have will never be broken.",
+          {
+            divert: "thinkingThumpyIs"
+          }
+        ]
+      },
+      AsHeStartsToBrea: {
+        content: [
+          " As he starts to break apart from the inside out you grab your robit and quickly start to lead the rest to the closest exit. You turn around to make sure all the robits are safely out; you see what is left of Tick Tock Titan collapse in a pile of scrape. A puff of black smoke floats from the pile and there is nothing left moving.",
+          {
+            divert: "youRaceOutOfTheW"
+          }
+        ]
+      },
+      onYourTripHomeYo: {
+        content: [
+          "On your trip home you feel lucky to have your robit back and to have witnessed such an amazing event. But you hope that is the last time you have to go hunting to find your beloved robit."
+        ]
+      },
+      thThThatsOkayHeT: {
+        content: [
+          ""Th-Th-That's okay" he timidly replies.",
+          {
+            divert: "myNnameIsNeighNi"
+          }
+        ]
+      },
+      isVicVroomInYour: {
+        content: [
+          "Is Vic Vroom in your party?",
+          {
+            linkPath: "vicVroom",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Vic Vroom"
+          },
+          {
+            linkPath: "youWonderIfYourR",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "No"
+          }
+        ]
+      },
+      asYouApproachThe: {
+        content: [
+          "As you approach the Moaning Mines an almost uncontrollable trembling starts to sink into your core. You look up and the hunching buildings towering over you in a mountainous manner.",
+          {
+            divert: "allYourFearsSeem"
+          },
+          {
+            pageNum: 11
+          },
+          {
+            pageLabel: " 1.1.1.b MM Yapping Yeti"
+          }
+        ]
+      },
+      tickTockTitanApp: {
+        content: [
+          "Tick Tock Titan appears to be entranced as he chants and sways in the center of room. The robits are zig zagging as they scurry around the room. Patterns start to emerge from the chaos and at times are more defined. The robits movements seem to be intertwined with Tick Tock.",
+          {
+            divert: "asYouWatchItHits"
+          }
+        ]
+      },
+      asYouAttemptToQu: {
+        content: [
+          "As you attempt to quietly pass by the big robot, you knock over a piece of equipment. With the crash that it makes he quickly focuses and you.",
+          {
+            divert: "youStartAtASprin"
+          }
+        ]
+      },
+      youAreRightAndTi: {
+        content: [
+          ""You are right, and /=Tick Tock Titan loves to talk about robits, especially how to raise them=/."",
+          {
+            divert: "youAskTheYetiIfH"
+          }
+        ]
+      },
+      tickTockTickTock: {
+        content: [
+          ""Tick Tock, Tick Tock is all I heard and then my beloved robit Nelly was gone in a flash. I was so stunned... I am not really sure what even happened. But I will never forget the Tick Tocking for as long as I live."",
+          {
+            divert: "youTryToPutHimAt"
+          }
+        ]
+      },
+      youAreLeftSpeech: {
+        content: [
+          "You are left speechless unsure of what to do or say.",
+          {
+            divert: "youBelieveWhatHe"
+          }
+        ]
+      },
+      ellieHasBeenYour: {
+        content: [
+          "Ellie has been your pet ever since you have had your own place. Your bond with her has grown very strong in a short period of time. She is loyal and always seems to know exactly what you want and need.",
+          {
+            divert: "theDoorFromYourB"
+          }
+        ]
+      },
+      youIntroduceYour: {
+        content: [
+          "You introduce yourself and as you talk he seems to calm down a little.",
+          {
+            divert: "whatHappenedToYo"
+          }
+        ]
+      },
+      tickTockTitanIsO: {
+        content: [
+          ""Tick Tock Titan is obsessed with robits. He has called out to them, and they answered his calls.",
+          {
+            divert: "youSeemPowerfulA"
+          }
+        ]
+      },
+      youImmediatelySt: {
+        content: [
+          "You immediately start to whisk as many of the robits out of the room as you can. Some of the others robits start to follow the rest and most are headed towards the lower exit.",
+          {
+            divert: "asYouMakeYourEsc"
+          }
+        ]
+      },
+      myJobFromTheVery: {
+        content: [
+          ""My job from the very beginning was to be there for the robits when they came into this world. I was chosen for the job because I could make the greatest connection to others. And I have loved this job every day since it first started.",
+          {
+            divert: "butInThatTimeIHa"
+          }
+        ]
+      },
+      hePushesYouOffTo: {
+        content: [
+          "He pushes you off to the side, but as he does a small attachment breaks free from him. Immediately all the robits stop moving for a moment.",
+          {
+            divert: "youFallToTheGrou"
+          }
+        ]
+      },
+      youLookAtTickToc: {
+        content: [
+          "You look at Tick Tock Titan and see pain in his expression. You approach him slowly and gently reach out to him. He shies away, "I just need 5 minutes, then you can have your and all the robits back."",
+          {
+            divert: "youContinueToTry"
+          }
+        ]
+      },
+      targetCareful: {
+        content: [
+          "*-Target: 4 Careful-*",
+          {
+            linkPath: "tickTockTitanApp",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Success"
+          },
+          {
+            linkPath: "carefullyWatchin",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Fail"
+          }
+        ]
+      },
+      isHumHarumphInYo: {
+        content: [
+          "Is Hum Harumph in your party?",
+          {
+            linkPath: "humHarumph",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Hum Harumph"
+          },
+          {
+            linkPath: "isVicVroomInYour",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "No"
+          }
+        ]
+      },
+      thisMorningYouAr: {
+        content: [
+          "This morning you are in the south field tending to the solar catchers that have seen better days, much like yourself. You know they need replacing, but you keep patching them up hoping they make it one more season.",
+          {
+            divert: "asYouFinishUpYou"
+          }
+        ]
+      },
+      theWasteWhinesAn: {
+        content: [
+          "The Waste whines and whirs as you wander your way around. Eventually you enter at the top of an expansive two story room. Stretching out from your location scaffolding snakes across the top of the room.",
+          {
+            divert: "beamsOfLightShoo"
+          },
+          {
+            pageNum: 14
+          },
+          {
+            pageLabel: " 1.1.1.1.c WW Tick Tock Titan"
+          }
+        ]
+      },
+      hisCriesBecomeSo: {
+        content: [
+          "His cries become softer and softer as you make your way out of the Whirring Waste. By the time you are out, you can't hear him at all.",
+          {
+            divert: "theRobitsTakeOff"
+          }
+        ]
+      },
+      yesRibbieIsGoneT: {
+        content: [
+          ""Yes, ribbie is gone too. I just want to know that he is ok."",
+          {
+            divert: "youAssureHimThat"
+          }
+        ]
+      },
+      asYouQuietlySnea: {
+        content: [
+          "As you quietly sneak past you hear Aargh state to no one in particular, "/=Ribbit may not know a lot, but he is always very helpful.=/"",
+          {
+            divert: "asYouContinueYou"
+          }
+        ]
+      },
+      heShakesLeftAndR: {
+        content: [
+          "He shakes left and right tossing you around. Your hold on his back is firm; riding the lunges your mind is filled with it's purpose.",
+          {
+            divert: "heSlowsDownAndYo"
+          }
+        ]
+      },
+      asYouApproachThe1: {
+        content: [
+          "As you approach the large robot quickly snaps you up. You feel helpless in his grasp, as he laughs at you and tosses you back up the mine.",
+          {
+            divert: "feelingYouWereLu"
+          }
+        ]
+      },
+      afterMuchSearchi: {
+        content: [
+          "After much searching and asking around about robits, you find out that most everyone has left because of their missing robits.",
+          {
+            divert: "snapSnare"
+          }
+        ]
+      },
+      theRobitsReturnW1: {
+        content: [
+          "The robits return without him. Your robit immediately jumps into your arms as the rest seem to be heading out of the Waste, probably back to their own homes. Not wanting to push your luck, you happily take your robit home.",
+          {
+            divert: "onYourTripHomeYo1"
+          }
+        ]
+      },
+      youNoisilyStartS: {
+        content: [
+          "You noisily start searching, not for the robits, but for your friends that you frequently play practical jokes on. You are sure they are paying you back for some of your more mischievous tricks.",
+          {
+            divert: "youFindNoFriendN"
+          }
+        ]
+      },
+      makingGoodASolid: {
+        content: [
+          "Making good a solid optics link with Tick Tock Titan you speak gently.",
+          {
+            divert: "youHaveAnImpress"
+          }
+        ]
+      },
+      ribbitRobbotIsOn: {
+        content: [
+          "Ribbit Robbot is one of the nicest robots you have ever meet, but there is a sadness about his actions. His words are kind and soft as he asks, "Can you to describe you missing robit?"",
+          {
+            linkPath: "sympathizeWithRi",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Careful"
+          },
+          {
+            linkPath: "describeYourDete",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Flashy"
+          }
+        ]
+      },
+      youFindAControlP: {
+        content: [
+          "You find a control panel and pop the cover. As you are working on this a hissing sound begins to fill your sensors. Quickly analyzing the components your figure out a way to open the door. Just as you walk out fire shoots from the furnace as it comes to life.",
+          {
+            divert: "narrowlyEscaping"
+          }
+        ]
+      },
+      youQuicklyDiscov: {
+        content: [
+          "You quickly discover that the trap you see is just a decoy, and there are several more waiting for you to make a wrong move. You find the primary trap and defuse it rendering them all harmless.",
+          {
+            divert: "withTheTrapBehin"
+          }
+        ]
+      },
+      andRobitsDidThei: {
+        content: [
+          ""And robits did their jobs well. Everyone began to come alive, and places like this closed down. But this was now long ago and has been forgotten.",
+          {
+            divert: "myJobFromTheVery"
+          }
+        ]
+      },
+      itchyIvy: {
+        content: [
+          "*-Itchy Ivy-*",
+          {
+            divert: "inYourHasteYouFa"
+          },
+          {
+            pageNum: 15
+          },
+          {
+            pageLabel: " 1.b PP Itchy Ivy"
+          }
+        ]
+      },
+      yourKeenOpticsSp: {
+        content: [
+          "Your keen optics spot a small opening near the door you came through. As you reach very carefully into the opening and feel around, you trip a lever that springs open the door. You quickly make your escape just as fire starts to shoot from the back of the furnace.",
+          {
+            divert: "youContinueYourW"
+          }
+        ]
+      },
+      withTheGreatestO: {
+        content: [
+          "With the greatest of ease you take down the lumbering Yeti. So quick and easy was your success that the Yeti feels compelled to talk.",
+          {
+            divert: "tickTockTitanIsO"
+          }
+        ]
+      },
+      theWorstPartWasI: {
+        content: [
+          ""The worst part was, I was sure I saw Ducky. His attention did not turn to me when I called out. I was too afraid to chase after him."",
+          {
+            linkPath: "rallyDentTargetF",
+            ifConditions: null,
+            notIfConditions: null,
+            option: "Flashy"
+          }
+        ]
+      },
+      youContinueToSea: {
+        content: [
+          "You continue to search other areas of the Moaning Mines, but nothing comes of it.",
+          {
+            divert: "havingThroughlyS"
+          }
+        ]
+      },
+      notTurningHeSays: {
+        content: [
+          "Not turning he says, "They all were mine first."",
+          {
+            divert: "youContinueToTry"
+          }
+        ]
+      },
+      asHeApproachesYo: {
+        content: [
+          "As he approaches you say "Hello" in the most gentle tone that you can muster.",
+          {
+            divert: "heHelloHaveYouSe"
+          }
+        ]
+      },
+      humHarumph: {
+        content: [
+          "*-Hum Harumph-*",
+          {
+            divert: "farmingHasAlways"
+          },
+          {
+            pageNum: 4
+          },
+          {
+            pageLabel: "Hum Harumph"
+          }
+        ]
+      },
+      atThatMomentAllT: {
+        content: [
+          "At that moment all the robit stop moving. They seemed dazed, but ok. Tick Tock cries out in pain and collapses to the floor. You can feel him starting to shake and his gears grating.",
+          {
+            divert: "AsHeStartsToBrea"
+          }
+        ]
+      },
+      thereIsALargeCro: {
+        content: [
+          "There is a large crowd gathered outside the Pattering Plant. They are all asking questions about their missing robits. In the crowd there seems to be many representatives of the company talking to people and taking notes.",
+          {
+            divert: "youFinallyGetThe"
+          },
+          {
+            pageNum: 8
+          },
+          {
+            pageLabel: " 1.c PP Ribbit Robbot"
+          }
+        ]
+      },
+      afterALongDayAtS: {
+        content: [
+          "After a long day at school, and an even longer night of tinkering, you finally get a few precious hours to recharge. As morning comes you are awoken from your rest cycle by your little sister, Blip, crying.",
+          {
+            divert: "youRememberThatY"
+          }
+        ]
+      },
+      asYouSearchYouHe1: {
+        content: [
+          "As you search you hear a hissing sound. You follow it, and find a room hidden off to the side of the machine. This room is filled with pipes and it's walls are heat shielded. Just as you enter the room, flames start to shoot out of the main chamber you just exited. The furnace is roaring at full tilt.",
+          {
+            divert: "youShutTheDoorTo"
+          }
+        ]
+      }
+    },
+    editorData: {
+      libraryVisible: true,
+      playPoint: "blankStitch",
+      authorName: "Kevin Craine",
+      textSize: 0
+    },
+    optionMirroring: true
+  },
+  created_at: "2014-12-14T05:21:37Z"
+}
