@@ -12,6 +12,4 @@ Minitest::Reporters.use!(
 )
 
 class ActiveSupport::TestCase
-  ActiveRecord::Migration.check_pending!
-  fixtures :all
 end
