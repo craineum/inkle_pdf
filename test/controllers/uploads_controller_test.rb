@@ -6,8 +6,8 @@ class UploadsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
+  test "should post to create" do
+    post :create
     assert_response :success
   end
 

@@ -11,5 +11,4 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
-class ActiveSupport::TestCase
-end
+Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
