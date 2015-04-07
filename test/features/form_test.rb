@@ -14,7 +14,7 @@ class FormTest < Capybara::Rails::TestCase
     attach_file :inkle_file, 'test/fixtures/sample.json'
     click_button 'Submit'
     assert_equal 'application/pdf', page.response_headers['Content-Type']
-    assert_pdf_has_content? 'The Robit Riddle'
-    assert_pdf_page_count 25
+    assert_pdf_has_content? page.source, 'The Robit Riddle'
+    assert_pdf_page_count page.source, 25
   end
 end
