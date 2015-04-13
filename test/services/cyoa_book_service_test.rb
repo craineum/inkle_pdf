@@ -68,4 +68,33 @@ class CyoaBookServiceTest < Minitest::Test
     assert_pdf_has_content? cyoa_pdf, 'was here but left'
     assert_pdf_has_content? cyoa_pdf, 'The End'
   end
+
+  def test_child_with_multiple_parents
+    book = [{
+      id: 'a',
+      contents: ['Is monkey man here?'],
+      child_options: [{ 'x' => 'no' }, { 'y' => 'yes' }, { 'z' => 'maybe' }]
+    }, {
+      id: 'x',
+      contents: ['left'],
+      parent_ids: ['a', 'y']
+    }, {
+      id: 'y',
+      contents: ['was here'],
+      child_options: [{ 'x' => 'but' }, { 'z' => 'i think' }],
+      parent_ids: ['a']
+    }, {
+      id: 'z',
+      contents: ['well make sure'],
+      parent_ids: ['a', 'y']
+    }]
+    BookSegment.add(*book)
+    cyoa_pdf = CyoaBookService.new.render
+    assert_pdf_page_count cyoa_pdf, 5
+    assert_pdf_has_content? cyoa_pdf, 'no - Turn to page 3'
+    assert_pdf_has_content? cyoa_pdf, 'yes - Turn to page 4'
+    assert_pdf_has_content? cyoa_pdf, 'maybe - Turn to page 5'
+    assert_pdf_has_content? cyoa_pdf, 'but - Turn to page 3'
+    assert_pdf_has_content? cyoa_pdf, 'i think - Turn to page 5'
+  end
 end
