@@ -3,20 +3,43 @@ class BookSegment
   extend Enumerable
   @@all = Array.new
 
-  attr_accessor :id, :contents, :page_start, :page_end
+  attr_accessor :id, :child_options, :contents, :page_end, :page_start,
+    :parent_ids
 
   validates :id, presence: true
-  validates :page_start, numericality: true, allow_nil: true
+  validate :child_options_is_array
+  validate :contents_is_array
   validates :page_end, numericality: true, allow_nil: true
-  validate do
-    if !contents.nil?
-      errors.add(:contents, 'must be an array') unless contents.is_a? Array
-    end
-  end
+  validates :page_start, numericality: true, allow_nil: true
+  validate :parent_ids_is_array
 
   def initialize(attributes={})
     super
     @@all << self
+  end
+
+  def child_ids
+    self.child_options = [] if child_options.blank?
+    @child_ids || child_options.map { |child_option| child_option.keys[0] }
+  end
+
+  def child_option(child_id)
+    if child_options.present?
+      child_options.find do |child_option|
+        child_option.keys[0] == child_id
+      end.values[0]
+    end
+  end
+
+  def children
+    @children || BookSegment.select { |segment| child_ids.include? segment.id }
+  end
+
+  def parents
+    self.parent_ids = [] if parent_ids.blank?
+    @parents || BookSegment.select do |segment|
+      parent_ids.include? segment.id
+    end
   end
 
   def self.each(&block)
@@ -29,8 +52,28 @@ class BookSegment
 
   def self.add(*segments)
     segments.each do |segment|
-      byebug
       new(segment.to_a)
+    end
+  end
+
+  private
+
+  def child_options_is_array
+    is_array(child_options: child_options)
+  end
+
+  def contents_is_array
+    is_array(contents: contents)
+  end
+
+  def parent_ids_is_array
+    is_array(parent_ids: parent_ids)
+  end
+
+  def is_array(attribute)
+    name, value = attribute.first
+    if !value.nil?
+      errors.add(name, 'must be an array') unless value.is_a? Array
     end
   end
 end

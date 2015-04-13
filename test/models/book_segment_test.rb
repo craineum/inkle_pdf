@@ -9,15 +9,52 @@ class BookSegmentTest < Minitest::Test
     book_segment = BookSegment.new
     assert book_segment.invalid?
     assert book_segment.errors.messages.include? :id
+    assert !book_segment.errors.messages.include?(:child_options)
     assert !book_segment.errors.messages.include?(:contents)
-    assert !book_segment.errors.messages.include?(:page_start)
     assert !book_segment.errors.messages.include?(:page_end)
+    assert !book_segment.errors.messages.include?(:page_start)
   end
 
   def test_id
     expected = 'abc'
     book_segment = BookSegment.new id: expected
     assert_equal expected, book_segment.id
+  end
+
+  def test_child_ids
+    book_segment = BookSegment.new child_options: [{'a' => 'A'}, {'b' => 'B'}]
+    assert_equal ['a', 'b'], book_segment.child_ids
+  end
+
+  def test_child_option
+    book_segment = BookSegment.new child_options: [{'a' => 'A'}]
+    assert_equal 'A', book_segment.child_option('a')
+  end
+
+  def test_child_options
+    expected = [{'a' => 'A'}, {'b' => 'B'}, {'c' => 'C'}]
+    book_segment = BookSegment.new child_options: expected
+    assert_equal expected, book_segment.child_options
+  end
+
+  def test_no_child_options
+    book_segment = BookSegment.new id: 'a'
+    assert_equal [], book_segment.child_ids
+    assert_equal nil, book_segment.child_option('b')
+    assert_equal [], book_segment.children
+  end
+
+  def test_child_options_is_array
+    book_segment = BookSegment.new child_options: 'a'
+    assert book_segment.invalid?
+    assert book_segment.errors.messages.include? :child_options
+  end
+
+  def test_children
+    segment_a = BookSegment.new id: 'a'
+    segment_b = BookSegment.new id: 'b'
+    book_segment = BookSegment.new child_options: [{'a' => 'A'}, {'b' => 'B'}]
+    assert_equal [segment_a, segment_b], book_segment.children
   end
 
   def test_contents
@@ -54,6 +91,30 @@ class BookSegmentTest < Minitest::Test
     book_segment = BookSegment.new page_end: 'a'
     assert book_segment.invalid?
     assert book_segment.errors.messages.include? :page_end
+  end
+
+  def test_parent_ids
+    expected = ['a', 'b', 'c']
+    book_segment = BookSegment.new parent_ids: expected
+    assert_equal expected, book_segment.parent_ids
+  end
+
+  def test_parent_ids_is_array
+    book_segment = BookSegment.new parent_ids: 'a'
+    assert book_segment.invalid?
+    assert book_segment.errors.messages.include? :parent_ids
+  end
+
+  def test_parents
+    segment_a = BookSegment.new id: 'a'
+    segment_b = BookSegment.new id: 'b'
+    book_segment = BookSegment.new parent_ids: ['a', 'b']
+    assert_equal [segment_a, segment_b], book_segment.parents
+  end
+
+  def test_no_parents
+    book_segment = BookSegment.new id: 'a'
+    assert_equal [], book_segment.parents
   end
 
   def test_add_one
