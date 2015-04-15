@@ -1,28 +1,58 @@
 require 'test_helper'
 
 class ParseInkleServiceTest < Minitest::Test
+  def wrap_json_string(payload)
+    '{ "data": {
+      "initial": "a",
+      "stitches": ' + payload + '} }'
+  end
+
+  def test_author
+    json_string = '{ "data": {
+      "editorData": { "authorName": "Monkey Man" } }
+    }'
+    author = ParseInkleService.new(json_string).author
+    assert_equal 'Monkey Man', author
+  end
+
+  def test_no_author
+    author = ParseInkleService.new('{}').author
+    assert_equal nil, author
+  end
+
+  def test_title
+    json_string = '{ "title": "The Monkey Way" }'
+    title = ParseInkleService.new(json_string).title
+    assert_equal 'The Monkey Way', title
+  end
+
+  def test_no_title
+    title = ParseInkleService.new('{}').title
+    assert_equal nil, title
+  end
+
   def test_single_paragraph
-    json_string = '{ "a": { "content": [ "monkey" ] } }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    json_string = wrap_json_string '{ "a": { "content": [ "monkey" ] } }'
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 1, parsed.count
     assert_equal 'a', parsed.first[:id]
     assert_equal ['monkey'], parsed.first[:contents]
   end
 
   def test_multiple_linked_paragraphs_unordered
-    json_string = '{
+    json_string = wrap_json_string '{
       "b": { "content": [ "man", { "divert": "c" } ] },
       "a": { "content": [ "monkey", { "divert": "b" } ] },
       "c": { "content": [ "was here"] }
     }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 1, parsed.count
     assert_equal 'a', parsed.first[:id]
     assert_equal ['monkey', 'man', 'was here'], parsed.first[:contents]
   end
 
   def test_paragraph_with_options
-    json_string = '{
+    json_string = wrap_json_string '{
       "b": { "content": [ "man", {
         "linkPath": "x", "option": "no"
       }, {
@@ -33,7 +63,7 @@ class ParseInkleServiceTest < Minitest::Test
       "y": { "content": [ "was here", { "divert": "z" } ] },
       "z": { "content": [ "but left" ] }
     }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 3, parsed.count
 
     assert_equal 'a', parsed.first[:id]
@@ -51,7 +81,7 @@ class ParseInkleServiceTest < Minitest::Test
   end
 
   def test_segment_with_multiple_parents
-    json_string = '{
+    json_string = wrap_json_string '{
       "a": { "content": [ "Is monkey man here?", {
         "linkPath": "x", "option": "no"
       }, {
@@ -67,7 +97,7 @@ class ParseInkleServiceTest < Minitest::Test
       } ] },
       "z": { "content": [ "well make sure"] }
     }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 4, parsed.count
 
     assert_equal 'a', parsed.first[:id]
@@ -91,7 +121,7 @@ class ParseInkleServiceTest < Minitest::Test
   end
 
   def test_paragraph_with_multiple_parents
-    json_string = '{
+    json_string = wrap_json_string '{
       "a": { "content": [ "monkey", {
         "linkPath": "x", "option": "boy"
       }, {
@@ -101,7 +131,7 @@ class ParseInkleServiceTest < Minitest::Test
       "y": { "content": [ "is beautiful", { "divert": "z" } ] },
       "z": { "content": [ "and smart"] }
     }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 4, parsed.count
 
     assert_equal 'a', parsed.first[:id]
@@ -125,7 +155,7 @@ class ParseInkleServiceTest < Minitest::Test
   end
 
   def test_paragraph_with_different_types_parents
-    json_string = '{
+    json_string = wrap_json_string '{
       "a": { "content": [ "monkey", {
         "linkPath": "x", "option": "boy"
       }, {
@@ -135,7 +165,7 @@ class ParseInkleServiceTest < Minitest::Test
       "y": { "content": [ "is beautiful", { "divert": "z" } ] },
       "z": { "content": [ "and smart"] }
     }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
+    parsed = ParseInkleService.new(json_string).segments
     assert_equal 3, parsed.count
 
     assert_equal 'a', parsed.first[:id]

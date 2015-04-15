@@ -1,22 +1,35 @@
 class ParseInkleService
-  def initialize(json_string, first_id)
-    @json_hash = JSON.parse(json_string)
+  attr_accessor :segments
+
+  def initialize(json_string)
     @segments = []
+    @json = JSON.parse(json_string)
+    first_id = @json['data'].try(:[], 'initial')
+    @paragraphs = @json['data'].try(:[], 'stitches')
     @children = [{ id: first_id, parent_ids: []}]
+    parse if @paragraphs.present?
   end
+
+  def author
+    @json['data'].try(:[], 'editorData').try(:[], 'authorName')
+  end
+
+  def title
+    @json['title']
+  end
+
+  private
 
   def parse
     until @children.empty?
       child = @children.shift
       child_id = child[:id]
       parent_ids = child[:parent_ids]
-      @segments << add_segment(child_id, parent_ids, @json_hash.fetch(child_id))
+      @segments << add_segment(child_id, parent_ids, @paragraphs.fetch(child_id))
     end
     normalize_segments
     @segments
   end
-
-  private
 
   def normalize_segments
     @segments.delete_if do |segment|
@@ -82,7 +95,7 @@ class ParseInkleService
   def contents(paragraph_data)
     @paragraph_data = paragraph_data
     if has_next_paragraph?
-      return content + contents(@json_hash.fetch(next_paragraph))
+      return content + contents(@paragraphs.fetch(next_paragraph))
     else
       return content
     end
