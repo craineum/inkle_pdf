@@ -9,18 +9,6 @@ class ParseInkleServiceTest < Minitest::Test
     assert_equal ['monkey'], parsed.first[:contents]
   end
 
-  def test_multiple_linked_paragraphs_ordered
-    json_string = '{
-      "a": { "content": [ "monkey", { "divert": "b" } ] },
-      "b": { "content": [ "man", { "divert": "c" } ] },
-      "c": { "content": [ "was here"] }
-    }'
-    parsed = ParseInkleService.new(json_string, 'a').parse
-    assert_equal 1, parsed.count
-    assert_equal 'a', parsed.first[:id]
-    assert_equal ['monkey', 'man', 'was here'], parsed.first[:contents]
-  end
-
   def test_multiple_linked_paragraphs_unordered
     json_string = '{
       "b": { "content": [ "man", { "divert": "c" } ] },
@@ -100,5 +88,69 @@ class ParseInkleServiceTest < Minitest::Test
     assert_equal 'z', parsed.last[:id]
     assert_equal ['well make sure'], parsed.last[:contents]
     assert_equal ['a', 'y'], parsed.last[:parent_ids]
+  end
+
+  def test_paragraph_with_multiple_parents
+    json_string = '{
+      "a": { "content": [ "monkey", {
+        "linkPath": "x", "option": "boy"
+      }, {
+        "linkPath": "y", "option": "girl"
+      } ] },
+      "x": { "content": [ "is handsome", { "divert": "z" } ] },
+      "y": { "content": [ "is beautiful", { "divert": "z" } ] },
+      "z": { "content": [ "and smart"] }
+    }'
+    parsed = ParseInkleService.new(json_string, 'a').parse
+    assert_equal 4, parsed.count
+
+    assert_equal 'a', parsed.first[:id]
+    assert_equal ['monkey'], parsed.first[:contents]
+    assert_equal([{ 'x' => 'boy' }, { 'y' => 'girl' }],
+                 parsed.first[:child_options])
+
+    assert_equal 'x', parsed.second[:id]
+    assert_equal ['is handsome'], parsed.second[:contents]
+    assert_equal ['a'], parsed.second[:parent_ids]
+    assert_equal('z', parsed.second[:child_options])
+
+    assert_equal 'y', parsed.third[:id]
+    assert_equal ['is beautiful'], parsed.third[:contents]
+    assert_equal ['a'], parsed.third[:parent_ids]
+    assert_equal('z', parsed.third[:child_options])
+
+    assert_equal 'z', parsed.last[:id]
+    assert_equal ['and smart'], parsed.last[:contents]
+    assert_equal ['x', 'y'], parsed.last[:parent_ids]
+  end
+
+  def test_paragraph_with_different_types_parents
+    json_string = '{
+      "a": { "content": [ "monkey", {
+        "linkPath": "x", "option": "boy"
+      }, {
+        "linkPath": "y", "option": "girl"
+      } ] },
+      "x": { "content": [ "is handsome", { "divert": "y" } ] },
+      "y": { "content": [ "is beautiful", { "divert": "z" } ] },
+      "z": { "content": [ "and smart"] }
+    }'
+    parsed = ParseInkleService.new(json_string, 'a').parse
+    assert_equal 3, parsed.count
+
+    assert_equal 'a', parsed.first[:id]
+    assert_equal ['monkey'], parsed.first[:contents]
+    assert_equal([{ 'x' => 'boy' }, { 'y' => 'girl' }],
+                 parsed.first[:child_options])
+
+    assert_equal 'x', parsed.second[:id]
+    assert_equal ['is handsome'], parsed.second[:contents]
+    assert_equal ['a'], parsed.second[:parent_ids]
+    assert_equal('y', parsed.second[:child_options])
+
+    assert_equal 'y', parsed.third[:id]
+    assert_equal ['is beautiful', 'and smart'], parsed.third[:contents]
+    assert_equal ['a', 'x'], parsed.third[:parent_ids]
+    assert_equal(nil, parsed.third[:child_options])
   end
 end

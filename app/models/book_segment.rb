@@ -7,7 +7,6 @@ class BookSegment
     :parent_ids
 
   validates :id, presence: true
-  validate :child_options_is_array
   validate :contents_is_array
   validates :page_end, numericality: true, allow_nil: true
   validates :page_start, numericality: true, allow_nil: true
@@ -20,11 +19,15 @@ class BookSegment
 
   def child_ids
     self.child_options = [] if child_options.blank?
-    @child_ids || child_options.map { |child_option| child_option.keys[0] }
+    @child_ids ||= if child_options.is_a? Array
+      child_options.map { |child_option| child_option.keys[0] }
+    else
+      [child_options]
+    end
   end
 
   def child_option(child_id)
-    if child_options.present?
+    if child_options.present? && child_options.is_a?(Array)
       child_options.find do |child_option|
         child_option.keys[0] == child_id
       end.values[0]
@@ -57,10 +60,6 @@ class BookSegment
   end
 
   private
-
-  def child_options_is_array
-    is_array(child_options: child_options)
-  end
 
   def contents_is_array
     is_array(contents: contents)

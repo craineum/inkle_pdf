@@ -5,7 +5,7 @@ class BookSegmentTest < Minitest::Test
     BookSegment.class_variable_set :@@all, []
   end
 
-  def test_presence
+  def test_invalid_errors
     book_segment = BookSegment.new
     assert book_segment.invalid?
     assert book_segment.errors.messages.include? :id
@@ -18,48 +18,70 @@ class BookSegmentTest < Minitest::Test
   def test_id
     expected = 'abc'
     book_segment = BookSegment.new id: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.id
   end
 
-  def test_child_ids
-    book_segment = BookSegment.new child_options: [{'a' => 'A'}, {'b' => 'B'}]
+  def test_child_options_array
+    expected = [{'a' => 'A'}, {'b' => 'B'}, {'c' => 'C'}]
+    book_segment = BookSegment.new id: 'x', child_options: expected
+    assert book_segment.valid?
+    assert_equal expected, book_segment.child_options
+  end
+
+  def test_child_options_array_child_ids
+    book_segment = BookSegment.new id: 'x',
+      child_options: [{'a' => 'A'}, {'b' => 'B'}]
+    assert book_segment.valid?
     assert_equal ['a', 'b'], book_segment.child_ids
   end
 
-  def test_child_option
-    book_segment = BookSegment.new child_options: [{'a' => 'A'}]
+  def test_child_options_array_child_option
+    book_segment = BookSegment.new id: 'x', child_options: [{'a' => 'A'}]
+    assert book_segment.valid?
     assert_equal 'A', book_segment.child_option('a')
   end
 
-  def test_child_options
-    expected = [{'a' => 'A'}, {'b' => 'B'}, {'c' => 'C'}]
-    book_segment = BookSegment.new child_options: expected
+  def test_child_options_string
+    expected = 'a'
+    book_segment = BookSegment.new id: 'x', child_options: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.child_options
+  end
+
+  def test_child_options_string_child_ids
+    book_segment = BookSegment.new id: 'x', child_options: 'a'
+    assert book_segment.valid?
+    assert_equal ['a'], book_segment.child_ids
+  end
+
+  def test_child_options_string_child_option
+    book_segment = BookSegment.new id: 'x', child_options: 'a'
+    assert book_segment.valid?
+    assert_equal nil, book_segment.child_option('a')
   end
 
   def test_no_child_options
     book_segment = BookSegment.new id: 'a'
+    assert book_segment.valid?
     assert_equal [], book_segment.child_ids
     assert_equal nil, book_segment.child_option('b')
     assert_equal [], book_segment.children
   end
 
-  def test_child_options_is_array
-    book_segment = BookSegment.new child_options: 'a'
-    assert book_segment.invalid?
-    assert book_segment.errors.messages.include? :child_options
-  end
-
   def test_children
     segment_a = BookSegment.new id: 'a'
     segment_b = BookSegment.new id: 'b'
-    book_segment = BookSegment.new child_options: [{'a' => 'A'}, {'b' => 'B'}]
+    book_segment = BookSegment.new id: 'x',
+      child_options: [{'a' => 'A'}, {'b' => 'B'}]
+    assert book_segment.valid?
     assert_equal [segment_a, segment_b], book_segment.children
   end
 
   def test_contents
     expected = ['a', 'b', 'c']
-    book_segment = BookSegment.new contents: expected
+    book_segment = BookSegment.new id: 'x', contents: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.contents
   end
 
@@ -71,7 +93,8 @@ class BookSegmentTest < Minitest::Test
 
   def test_page_start
     expected = 1
-    book_segment = BookSegment.new page_start: expected
+    book_segment = BookSegment.new id: 'x', page_start: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.page_start
   end
 
@@ -83,7 +106,8 @@ class BookSegmentTest < Minitest::Test
 
   def test_page_end
     expected = 1
-    book_segment = BookSegment.new page_end: expected
+    book_segment = BookSegment.new id: 'x', page_end: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.page_end
   end
 
@@ -95,7 +119,8 @@ class BookSegmentTest < Minitest::Test
 
   def test_parent_ids
     expected = ['a', 'b', 'c']
-    book_segment = BookSegment.new parent_ids: expected
+    book_segment = BookSegment.new id: 'x', parent_ids: expected
+    assert book_segment.valid?
     assert_equal expected, book_segment.parent_ids
   end
 
@@ -108,12 +133,14 @@ class BookSegmentTest < Minitest::Test
   def test_parents
     segment_a = BookSegment.new id: 'a'
     segment_b = BookSegment.new id: 'b'
-    book_segment = BookSegment.new parent_ids: ['a', 'b']
+    book_segment = BookSegment.new id: 'x', parent_ids: ['a', 'b']
+    assert book_segment.valid?
     assert_equal [segment_a, segment_b], book_segment.parents
   end
 
   def test_no_parents
     book_segment = BookSegment.new id: 'a'
+    assert book_segment.valid?
     assert_equal [], book_segment.parents
   end
 

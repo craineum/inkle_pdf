@@ -78,7 +78,11 @@ class CyoaBookService
 
     def footer_options(parent_page, footers)
       footers = footers.map do |footer|
-        footer[:option] + ' - Turn to page ' + footer[:page].to_s
+        if footer[:option].present?
+          footer[:option] + ' - Turn to page ' + footer[:page].to_s
+        else
+          'Turn to page ' + footer[:page].to_s
+        end
       end
       go_to_page parent_page
       footer(*footers)

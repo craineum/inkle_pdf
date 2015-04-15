@@ -12,16 +12,69 @@ class ParseInkleService
       parent_ids = child[:parent_ids]
       @segments << add_segment(child_id, parent_ids, @json_hash.fetch(child_id))
     end
+    normalize_segments
     @segments
   end
 
   private
 
+  def normalize_segments
+    @segments.delete_if do |segment|
+      @segment = segment
+      update_segment
+    end
+  end
+
+  def update_segment
+    if has_single_parent_with_single_child?
+      update_parent && update_children
+      true
+    end
+  end
+
+  def has_single_parent_with_single_child?
+    @segment[:parent_ids].length == 1 && parent[:child_options] == @segment[:id]
+  end
+
+  def update_parent
+    parent[:contents] += @segment[:contents]
+    parent[:child_options] = @segment[:child_options]
+  end
+
+  def parent
+    @segments.find do |segment|
+      segment[:id] == @segment[:parent_ids].join(',')
+    end
+  end
+
+  def update_children
+    if @segment[:child_options].present?
+      children.each do |child|
+        child[:parent_ids].map! { |id| parent[:id] if id == @segment[:id] }
+      end
+    end
+  end
+
+  def children
+    @segments.select { |segment| children_ids.include? segment[:id] }
+  end
+
+  def children_ids
+    if @segment[:child_options].is_a? String
+      [@segment[:child_options]]
+    else
+      @segment[:child_options].map { |child_option| child_option.keys[0] }
+    end
+  end
+
+
   def add_segment(id, parent_ids, paragraph_data)
+    @paragraph_data = paragraph_data
     {
       id: id,
-      contents: contents(paragraph_data),
-      child_options: child_options(id),
+      contents: content,
+      #contents: contents(paragraph_data),
+      child_options: child_options(id) || child_divert(id),
       parent_ids: parent_ids
     }
   end
@@ -45,6 +98,13 @@ class ParseInkleService
 
   def next_paragraph
     @paragraph_data['content'][1]['divert']
+  end
+
+  def child_divert(parent_id)
+    if has_next_paragraph?
+      add_child next_paragraph, parent_id
+      next_paragraph
+    end
   end
 
   def child_options(parent_id)

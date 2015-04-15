@@ -97,4 +97,32 @@ class CyoaBookServiceTest < Minitest::Test
     assert_pdf_has_content? cyoa_pdf, 'but - Turn to page 3'
     assert_pdf_has_content? cyoa_pdf, 'i think - Turn to page 5'
   end
+
+  def test_segment_with_single_child_no_option
+    book = [{
+      id: 'a',
+      contents: ['monkey'],
+      child_options: [{ 'x' => 'boy' }, { 'y' => 'girl' }]
+    }, {
+      id: 'x',
+      contents: ['is handsome'],
+      child_options: 'z',
+      parent_ids: ['a']
+    }, {
+      id: 'y',
+      contents: ['is beautiful'],
+      child_options: 'z',
+      parent_ids: ['a']
+    }, {
+      id: 'z',
+      contents: ['and smart'],
+      parent_ids: ['x', 'y']
+    }]
+    BookSegment.add(*book)
+    cyoa_pdf = CyoaBookService.new.render
+    assert_pdf_page_count cyoa_pdf, 5
+    assert_pdf_has_content? cyoa_pdf, 'boy - Turn to page 3'
+    assert_pdf_has_content? cyoa_pdf, 'girl - Turn to page 4'
+    assert_pdf_has_content? cyoa_pdf, 'Turn to page 5'
+  end
 end
