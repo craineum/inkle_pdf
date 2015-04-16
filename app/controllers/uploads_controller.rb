@@ -1,15 +1,21 @@
+require 'open-uri'
+
 class UploadsController < ApplicationController
   def show
   end
 
   def create
-    send_data(generate_pdf, :filename => 'output.pdf', :type => 'application/pdf')
+    story_id = URI(params['inkle_url']).path.split('/').last.split('.').first
+    send_data generate_pdf(story_id),
+      :filename => 'output.pdf',
+      :type => 'application/pdf'
   end
 
   private
-  def generate_pdf
-    Prawn::Document.new do
-      text 'The Robit Riddle'
-    end.render
+  def generate_pdf(story_id)
+    url = 'https://writer.inklestudios.com/stories/' + story_id + '.json'
+    parser = ParseInkleService.new(open(url).read)
+    BookSegment.add(parser.segments)
+    CyoaBookService.new(parser.title, parser.author).render
   end
 end

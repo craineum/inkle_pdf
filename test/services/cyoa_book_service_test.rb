@@ -54,7 +54,7 @@ class CyoaBookServiceTest < Minitest::Test
     },{
       id: 'y', contents: ['was here', 'but left'], parent_ids: ['a']
     }]
-    BookSegment.add(*book)
+    BookSegment.add(book)
     cyoa_pdf = CyoaBookService.new.render
     assert_pdf_page_count cyoa_pdf, 4
     BookSegment.each_with_index do |book_segment, index|
@@ -88,7 +88,7 @@ class CyoaBookServiceTest < Minitest::Test
       contents: ['well make sure'],
       parent_ids: ['a', 'y']
     }]
-    BookSegment.add(*book)
+    BookSegment.add(book)
     cyoa_pdf = CyoaBookService.new.render
     assert_pdf_page_count cyoa_pdf, 5
     assert_pdf_has_content? cyoa_pdf, 'no - Turn to page 3'
@@ -118,7 +118,7 @@ class CyoaBookServiceTest < Minitest::Test
       contents: ['and smart'],
       parent_ids: ['x', 'y']
     }]
-    BookSegment.add(*book)
+    BookSegment.add(book)
     cyoa_pdf = CyoaBookService.new.render
     assert_pdf_page_count cyoa_pdf, 5
     assert_pdf_has_content? cyoa_pdf, 'boy - Turn to page 3'

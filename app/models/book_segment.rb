@@ -53,7 +53,7 @@ class BookSegment
     @@all.all? { |item| item.valid? }
   end
 
-  def self.add(*segments)
+  def self.add(segments)
     segments.each do |segment|
       new(segment.to_a)
     end

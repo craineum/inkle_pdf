@@ -144,14 +144,9 @@ class BookSegmentTest < Minitest::Test
     assert_equal [], book_segment.parents
   end
 
-  def test_add_one
-    BookSegment.add id: 'a'
+  def test_add
+    BookSegment.add [id: 'a']
     assert_equal 1, BookSegment.count
-  end
-
-  def test_add_two
-    BookSegment.add({ id: 'a', contents:[ '1' ] }, { id: 'b' })
-    assert_equal 2, BookSegment.count
   end
 
   def test_valid?

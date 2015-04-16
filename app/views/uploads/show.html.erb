@@ -1,5 +1,6 @@
 <h1>Upload Inkle JSON file</h1>
-<%= form_tag({action: :create}, multipart: true) do %>
-  <%= file_field_tag :inkle_file %>
+<%= form_tag action: :create do %>
+  <%= label_tag :inkle_url, 'Inkle URL' %>
+  <%= text_field_tag :inkle_url %>
   <%= submit_tag 'Submit' %>
 <% end %>
