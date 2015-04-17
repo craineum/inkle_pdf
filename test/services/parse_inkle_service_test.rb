@@ -42,7 +42,7 @@ class ParseInkleServiceTest < Minitest::Test
   def test_multiple_linked_paragraphs_unordered
     json_string = wrap_json_string '{
       "b": { "content": [ "man", { "divert": "c" } ] },
-      "a": { "content": [ "monkey", { "divert": "b" } ] },
+      "a": { "content": [ "monkey", {}, { "divert": "b" } ] },
       "c": { "content": [ "was here"] }
     }'
     parsed = ParseInkleService.new(json_string).segments
@@ -54,9 +54,13 @@ class ParseInkleServiceTest < Minitest::Test
   def test_paragraph_with_options
     json_string = wrap_json_string '{
       "b": { "content": [ "man", {
+        "image": "a"
+      }, {
         "linkPath": "x", "option": "no"
       }, {
         "linkPath": "y", "option": "yes"
+      }, {
+        "pageNum": 1
       } ] },
       "a": { "content": [ "monkey", { "divert": "b" } ] },
       "x": { "content": [ "was not here"] },
@@ -78,6 +82,41 @@ class ParseInkleServiceTest < Minitest::Test
     assert_equal 'y', parsed.third[:id]
     assert_equal ['was here', 'but left'], parsed.third[:contents]
     assert_equal ['a'], parsed.third[:parent_ids]
+  end
+
+  def test_paragraph_with_null_option
+    json_string = wrap_json_string '{
+      "b": { "content": [ "man", {
+      }, {
+        "linkPath": "x", "option": "no"
+      }, {
+        "linkPath": null, "option": "yes"
+      } ] },
+      "a": { "content": [ "monkey", { "divert": "b" } ] },
+      "x": { "content": [ "was not here"] }
+    }'
+    parsed = ParseInkleService.new(json_string).segments
+    assert_equal 2, parsed.count
+
+    assert_equal 'a', parsed.first[:id]
+    assert_equal ['monkey', 'man'], parsed.first[:contents]
+    assert_equal [{ 'x' => 'no' }], parsed.first[:child_options]
+  end
+
+  def test_paragraph_with_null_options
+    json_string = wrap_json_string '{
+      "b": { "content": [ "man", {
+      }, {
+        "linkPath": null, "option": "yes"
+      } ] },
+      "a": { "content": [ "monkey", { "divert": "b" } ] }
+    }'
+    parsed = ParseInkleService.new(json_string).segments
+    assert_equal 1, parsed.count
+
+    assert_equal 'a', parsed.first[:id]
+    assert_equal ['monkey', 'man'], parsed.first[:contents]
+    assert_equal nil, parsed.first[:child_options]
   end
 
   def test_segment_with_multiple_parents
@@ -156,11 +195,12 @@ class ParseInkleServiceTest < Minitest::Test
 
   def test_paragraph_with_different_types_parents
     json_string = wrap_json_string '{
-      "a": { "content": [ "monkey", {
+      "b": { "content": [ "monkey", {
         "linkPath": "x", "option": "boy"
       }, {
         "linkPath": "y", "option": "girl"
       } ] },
+      "a": { "content": [ "this", { "divert": "b" } ] },
       "x": { "content": [ "is handsome", { "divert": "y" } ] },
       "y": { "content": [ "is beautiful", { "divert": "z" } ] },
       "z": { "content": [ "and smart"] }
@@ -169,7 +209,7 @@ class ParseInkleServiceTest < Minitest::Test
     assert_equal 3, parsed.count
 
     assert_equal 'a', parsed.first[:id]
-    assert_equal ['monkey'], parsed.first[:contents]
+    assert_equal ['this', 'monkey'], parsed.first[:contents]
     assert_equal([{ 'x' => 'boy' }, { 'y' => 'girl' }],
                  parsed.first[:child_options])
 

@@ -26,6 +26,7 @@ class CyoaBookService
 
     def initialize(attributes={})
       @document ||= Prawn::Document.new(attributes)
+      @pages_with_footer = []
     end
 
     def segment_content(contents)
@@ -45,6 +46,7 @@ class CyoaBookService
         go_to_last_page
       end
       footer_end if book_segment.children.blank?
+      parent_footer(book_segment)
     end
 
     def parent_footers(book_segment)
@@ -60,7 +62,7 @@ class CyoaBookService
           { option: parent.child_option(child.id), page: child.page_start }
         end
       end.compact
-      if footers.length == parent.children.length
+      if footers.length == parent.children.length && parent.page_end.present?
         footer_options(parent.page_end, footers)
       end
     end
@@ -89,10 +91,13 @@ class CyoaBookService
     end
 
     def footer(*messages)
-      canvas do
-        bounding_box([54, 102], width: 324, height: 96) do
-          messages.each do |message|
-            text message
+      if @pages_with_footer.exclude? page_number
+        @pages_with_footer << page_number
+        canvas do
+          bounding_box([54, 102], width: 324, height: 96) do
+            messages.each do |message|
+              text message
+            end
           end
         end
       end

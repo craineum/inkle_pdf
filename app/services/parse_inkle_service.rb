@@ -63,7 +63,7 @@ class ParseInkleService
   def update_children
     if @segment[:child_options].present?
       children.each do |child|
-        child[:parent_ids].map! { |id| parent[:id] if id == @segment[:id] }
+        child[:parent_ids].map! { |id| id == @segment[:id] ? parent[:id] : id }
       end
     end
   end
@@ -86,7 +86,6 @@ class ParseInkleService
     {
       id: id,
       contents: content,
-      #contents: contents(paragraph_data),
       child_options: child_options(id) || child_divert(id),
       parent_ids: parent_ids
     }
@@ -102,15 +101,17 @@ class ParseInkleService
   end
 
   def has_next_paragraph?
-    @paragraph_data['content'][1] and next_paragraph
+    next_paragraph.present?
   end
 
   def has_options?
-    @paragraph_data['content'][1] and @paragraph_data['content'][1]['linkPath']
+    options.present?
   end
 
   def next_paragraph
-    @paragraph_data['content'][1]['divert']
+    @paragraph_data['content'].find do |content|
+      content.is_a?(Hash) && content.has_key?('divert')
+    end.try(:values).try(:[], 0)
   end
 
   def child_divert(parent_id)
@@ -122,18 +123,19 @@ class ParseInkleService
 
   def child_options(parent_id)
     if has_options?
-      options.map do |option|
-        add_child option['linkPath'], parent_id
-        { option['linkPath'] => option['option'] }
-      end
+      child_options = options.map do |option|
+        if option['linkPath'].present?
+          add_child option['linkPath'], parent_id
+          { option['linkPath'] => option['option'] }
+        end
+      end.compact
+      child_options if child_options.present?
     end
   end
 
   def options
-    (1..@paragraph_data['content'].length - 1).map do |option|
-      if @paragraph_data['content'][option]['linkPath']
-        @paragraph_data['content'][option]
-      end
+    @paragraph_data['content'].select do |content|
+      content.is_a?(Hash) && content.has_key?('linkPath')
     end
   end
 
