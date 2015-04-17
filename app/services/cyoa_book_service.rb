@@ -13,6 +13,29 @@ class CyoaBookService
 
       pdf.footers(book_segment)
     end
+    page_numbers
+  end
+
+  def page_numbers
+    page = '<page>'
+    odd_options = {
+      at: [pdf.bounds.right + 6, pdf.bounds.top + 36],
+      width: 42,
+      align: :center,
+      page_filter: :odd,
+      start_count_at: 1,
+      size: 24
+    }
+    even_options = {
+      at: [pdf.bounds.left - 48, pdf.bounds.top + 36],
+      width: 42,
+      align: :center,
+      page_filter: :even,
+      start_count_at: 2,
+      size: 24
+    }
+    pdf.number_pages page, odd_options
+    pdf.number_pages page, even_options
   end
 
   def render

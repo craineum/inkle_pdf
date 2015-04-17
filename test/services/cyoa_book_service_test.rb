@@ -27,6 +27,7 @@ class CyoaBookServiceTest < Minitest::Test
     assert_equal 2, book_segment.page_end
     assert_pdf_has_content? cyoa_pdf, 'monkey man!'
     assert_pdf_has_content? cyoa_pdf, 'The End'
+    assert_pdf_has_content? cyoa_pdf, '2'
   end
 
   def test_multi_page_segment
@@ -42,6 +43,8 @@ class CyoaBookServiceTest < Minitest::Test
     assert_pdf_has_content? cyoa_pdf, paragraph_b[-1..-10]
     assert_pdf_has_content? cyoa_pdf, 'Turn to the next page'
     assert_pdf_has_content? cyoa_pdf, 'The End'
+    assert_pdf_has_content? cyoa_pdf, '2'
+    assert_pdf_has_content? cyoa_pdf, '3'
   end
 
   def test_branch
