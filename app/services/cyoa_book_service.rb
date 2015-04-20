@@ -54,7 +54,7 @@ class CyoaBookService
 
     def segment_content(contents)
       contents.each do |content|
-        text content
+        text content, indent_paragraphs: 20
       end
     end
 
