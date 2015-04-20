@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'uploads#show'
-  get 'uploads/show'
-  post 'uploads/create'
+  root 'cyoa_book#show'
+  get 'cyoa_book/show'
+  post 'cyoa_book/create'
 end

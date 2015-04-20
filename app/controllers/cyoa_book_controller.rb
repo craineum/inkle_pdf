@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class UploadsController < ApplicationController
+class CyoaBookController < ApplicationController
   def show
   end
 
