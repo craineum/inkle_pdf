@@ -1,25 +1,26 @@
 module PdfInspector
   attr_accessor :pdf
 
-  def assert_pdf_has_content?(pdf, text)
+  def assert_pdf_has_content?(pdf, text, options={})
+    count = options[:count].present? ? options[:count] : 1
     @pdf ||= pdf
-    assert text_analysis.strings.join(' ').include?(text), content_message(text)
+    assert((text_analysis.strings.join(' ').scan(text).count == count),
+      "PDF does not contain #{text}")
+  end
+
+  def assert_pdf_has_no_content?(pdf, text)
+    @pdf ||= pdf
+    assert text_analysis.strings.join(' ').exclude?(text),
+      "PDF contains #{text} and it should not"
   end
 
   def assert_pdf_page_count(pdf, count)
     @pdf ||= pdf
-    assert pdf_page_count == count, page_count_message(count)
+    assert pdf_page_count == count,
+      "PDF has #{pdf_page_count}, not #{count} page(s)"
   end
 
   private
-
-  def content_message(expected)
-    "PDF does not contain #{expected}"
-  end
-
-  def page_count_message(expected)
-    "PDF has #{pdf_page_count}, not #{expected} page(s)"
-  end
 
   def pdf_page_count
     page_analysis.pages.size
