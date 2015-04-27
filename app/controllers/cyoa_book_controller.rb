@@ -5,17 +5,22 @@ class CyoaBookController < ApplicationController
   end
 
   def create
-    story_id = URI(params['inkle_url']).path.split('/').last.split('.').first
-    send_data generate_pdf(story_id),
-      :filename => 'output.pdf',
-      :type => 'application/pdf'
+    @title = parser.title
+    @author  = parser.author
+    @segments = BookSegment.add parser.segments
   end
 
   private
-  def generate_pdf(story_id)
-    url = 'https://writer.inklestudios.com/stories/' + story_id + '.json'
-    parser = ParseInkleService.new(open(url).read)
-    BookSegment.add(parser.segments)
-    CyoaBookService.new(parser.title, parser.author).render
+
+  def story_id
+    @story_id ||= URI(params['inkle_url']).path.split('/').last.split('.').first
+  end
+
+  def url
+    @url ||= 'https://writer.inklestudios.com/stories/' + story_id + '.json'
+  end
+
+  def parser
+    @parser ||= ParseInkleService.new(open(url).read)
   end
 end
