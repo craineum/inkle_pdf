@@ -12,6 +12,21 @@ class BookSegment
   validates :page_start, numericality: true, allow_nil: true
   validate :parent_ids_is_array
 
+  def self.add(segments)
+    segments.each do |segment|
+      new(segment.to_a)
+    end
+    self
+  end
+
+  def self.each(&block)
+    @@all.each { |item| block.call(item) }
+  end
+
+  def self.valid?
+    @@all.all? { |item| item.valid? }
+  end
+
   def initialize(attributes={})
     super
     @@all << self
@@ -26,16 +41,51 @@ class BookSegment
     end
   end
 
-  def child_option(child_id)
-    if child_options.present? && child_options.is_a?(Array)
-      child_options.find do |child_option|
-        child_option.keys[0] == child_id
-      end.values[0]
+  def children
+    @children || BookSegment.select { |segment| child_ids.include? segment.id }
+  end
+
+  def footer_end
+    [{ page: page_end, footers: ['The End'] }] if footer_end?
+  end
+
+  def footer_end?
+    child_options.blank?
+  end
+
+  def footer_next
+    (page_start..page_end - 1).map do |number|
+      { page: number, footers: ['Turn to the next page'] }
+    end if footer_next?
+  end
+
+  def footer_next?
+    page_start != page_end
+  end
+
+  def footer_options
+    if footer_options?
+      options = children.map do
+        |child| option(child.id) + 'Turn to page ' + child.page_start.to_s
+      end
+      [{ page: page_end, footers: options }]
     end
   end
 
-  def children
-    @children || BookSegment.select { |segment| child_ids.include? segment.id }
+  def footer_options?
+    if page_end.present? && children.present?
+      children.all? { |child| child.page_start.present? }
+    end
+  end
+
+  def footers
+    if footers?
+      [footer_end, footer_next, footer_options, parents_footers].compact.flatten
+    end
+  end
+
+  def footers?
+    footer_end? || footer_next? || footer_options? || parents_footers?
   end
 
   def parents
@@ -45,28 +95,31 @@ class BookSegment
     end
   end
 
-  def self.each(&block)
-    @@all.each { |item| block.call(item) }
+  def parents_footers
+    parents.map { |parent| parent.footer_options }.flatten.compact if parents_footers?
   end
 
-  def self.valid?
-    @@all.all? { |item| item.valid? }
-  end
-
-  def self.add(segments)
-    segments.each do |segment|
-      new(segment.to_a)
-    end
+  def parents_footers?
+    parents.any? { |parent| parent.footer_options? } if parents.present?
   end
 
   private
+
+  def child_option(child_id)
+    if child_options.present? && child_options.is_a?(Array)
+      child_options.find do |child_option|
+        child_option.keys[0] == child_id
+      end.values[0]
+    end
+  end
 
   def contents_is_array
     is_array(contents: contents)
   end
 
-  def parent_ids_is_array
-    is_array(parent_ids: parent_ids)
+  def option(child_id)
+    option = child_option(child_id)
+    option.present? ? option + ' - ' : ''
   end
 
   def is_array(attribute)
@@ -74,5 +127,9 @@ class BookSegment
     if !value.nil?
       errors.add(name, 'must be an array') unless value.is_a? Array
     end
+  end
+
+  def parent_ids_is_array
+    is_array(parent_ids: parent_ids)
   end
 end
