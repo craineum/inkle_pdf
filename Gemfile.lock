@@ -118,6 +118,9 @@ GEM
     prawn (2.0.1)
       pdf-core (~> 0.5.1)
       ttfunk (~> 1.4.0)
+    prawn_rails (0.0.11)
+      prawn (>= 0.11.1)
+      railties (>= 3.0.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -201,6 +204,7 @@ DEPENDENCIES
   minitest-reporters
   pdf-inspector
   prawn
+  prawn_rails
   rails (= 4.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
