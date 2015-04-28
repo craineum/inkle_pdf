@@ -3,6 +3,10 @@ module CyoaBookHelper
     include Prawn::View
 
     def initialize(attributes={})
+      @markup_converter = attributes.delete(:markup_converter).new([
+        { from_start: /\*-/, from_end: /-\*/, to: 'b' },
+        { from_start: /\/=/, from_end: /=\//, to: 'i' }
+      ])
       @document ||= Prawn::Document.new(attributes)
       @pages_with_footer = []
     end
@@ -13,7 +17,7 @@ module CyoaBookHelper
         canvas do
           bounding_box([54, 102], width: 324, height: 96) do
             messages.each do |message|
-              text message
+              text @markup_converter.tags(message), inline_format: true
             end
           end
         end
@@ -48,7 +52,9 @@ module CyoaBookHelper
 
     def segment_contents(contents)
       contents.each do |content|
-        text content, indent_paragraphs: 20
+        text @markup_converter.tags(content),
+          inline_format: true,
+          indent_paragraphs: 20
       end
     end
   end

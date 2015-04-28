@@ -1,4 +1,5 @@
 prawn_document({ renderer: CyoaBookHelper::CyoaBookPdf,
+                 markup_converter: MarkupConverter,
                  page_size: [432, 648],
                  margin: [54, 54, 108, 54] }) do |pdf|
   pdf.text @title
