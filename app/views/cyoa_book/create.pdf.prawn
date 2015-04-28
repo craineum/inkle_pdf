@@ -2,8 +2,9 @@ prawn_document({ renderer: CyoaBookHelper::CyoaBookPdf,
                  markup_converter: MarkupConverter,
                  page_size: [432, 648],
                  margin: [54, 54, 108, 54] }) do |pdf|
-  pdf.text @title
-  pdf.text "by " + @author
+  pdf.text @title, align: :center, size: 18, style: :bold
+  pdf.move_down 10
+  pdf.text "by " + @author, align: :center, size: 14
   @segments.each do |segment|
     pdf.start_new_page
     segment.page_start = pdf.page_count
