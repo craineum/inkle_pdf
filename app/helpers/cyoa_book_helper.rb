@@ -17,7 +17,7 @@ module CyoaBookHelper
         canvas do
           bounding_box([54, 102], width: 324, height: 96) do
             messages.each do |message|
-              text @markup_converter.tags(message), inline_format: true
+              text convert_markup(message), inline_format: true
             end
           end
         end
@@ -52,10 +52,29 @@ module CyoaBookHelper
 
     def segment_contents(contents)
       contents.each do |content|
-        text @markup_converter.tags(content),
-          inline_format: true,
-          indent_paragraphs: 20
+        text_formatted content
       end
+    end
+
+    private
+
+    def convert_markup(content)
+      @markup_converter.tags(content)
+    end
+
+    def header?(content)
+      content.match(/<b>.*?<\/b>/).to_s == content
+    end
+
+    def text_formatted(content)
+      content = convert_markup(content)
+      options = { inline_format: true }
+      if header? content
+        options.merge!({ align: :center, size: 16 })
+      else
+        options.merge!({ indent_paragraphs: 20 })
+      end
+      text content, options
     end
   end
 end
