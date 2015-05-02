@@ -2,6 +2,7 @@ prawn_document({ renderer: CyoaBookHelper::CyoaBookPdf,
                  markup_converter: MarkupConverter,
                  page_size: [432, 648],
                  margin: [54, 54, 108, 54] }) do |pdf|
+  pdf.move_down 200
   pdf.text @title, align: :center, size: 18, style: :bold
   pdf.move_down 10
   pdf.text "by " + @author, align: :center, size: 14
