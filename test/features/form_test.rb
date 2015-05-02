@@ -3,10 +3,6 @@ require 'test_helper'
 class FormTest < Capybara::Rails::TestCase
   include PdfInspector
 
-  def setup
-    BookSegment.class_variable_set :@@all, []
-  end
-
   def test_load_form
     visit root_path
     page.assert_selector 'form'

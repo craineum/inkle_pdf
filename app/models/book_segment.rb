@@ -1,7 +1,5 @@
 class BookSegment
   include ActiveModel::Model
-  extend Enumerable
-  @@all = Array.new
 
   attr_accessor :id, :child_options, :contents, :page_end, :page_start,
     :parent_ids
@@ -12,24 +10,9 @@ class BookSegment
   validates :page_start, numericality: true, allow_nil: true
   validate :parent_ids_is_array
 
-  def self.add(segments)
-    segments.each do |segment|
-      new(segment.to_a)
-    end
-    self
-  end
-
-  def self.each(&block)
-    @@all.each { |item| block.call(item) }
-  end
-
-  def self.valid?
-    @@all.all? { |item| item.valid? }
-  end
-
-  def initialize(attributes={})
-    super
-    @@all << self
+  def initialize(segments, attributes={})
+    super attributes
+    @segments = segments
   end
 
   def child_ids
@@ -42,7 +25,7 @@ class BookSegment
   end
 
   def children
-    @children || BookSegment.select { |segment| child_ids.include? segment.id }
+    @children || @segments.select { |segment| child_ids.include? segment.id }
   end
 
   def footer_end
@@ -90,7 +73,7 @@ class BookSegment
 
   def parents
     self.parent_ids = [] if parent_ids.blank?
-    @parents || BookSegment.select do |segment|
+    @parents || @segments.select do |segment|
       parent_ids.include? segment.id
     end
   end

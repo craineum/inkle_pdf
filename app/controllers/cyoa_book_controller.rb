@@ -7,7 +7,7 @@ class CyoaBookController < ApplicationController
   def create
     @title = parser.title
     @author  = parser.author
-    @segments = BookSegment.add parser.segments
+    @segments = BookSegments.new.add parser.segments
   end
 
   private
