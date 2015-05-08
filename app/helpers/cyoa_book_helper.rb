@@ -15,7 +15,8 @@ module CyoaBookHelper
       if @pages_with_footer.exclude? page_number
         @pages_with_footer << page_number
         canvas do
-          bounding_box([54, 102], width: 324, height: 96) do
+          bounding_box([54, 129], width: 324, height: 113) do
+            move_down (7 - messages.count) * 14
             messages.each do |message|
               text convert_markup(message), inline_format: true
             end
@@ -36,7 +37,7 @@ module CyoaBookHelper
         align: :center,
         page_filter: :odd,
         start_count_at: 1,
-        size: 24
+        size: 18
       }
       even_options = {
         at: [bounds.left - 48, bounds.top + 36],
@@ -44,7 +45,7 @@ module CyoaBookHelper
         align: :center,
         page_filter: :even,
         start_count_at: 2,
-        size: 24
+        size: 18
       }
       number_pages page, odd_options
       number_pages page, even_options
