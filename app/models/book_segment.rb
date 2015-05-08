@@ -48,9 +48,6 @@ class BookSegment
 
   def footer_options
     if footer_options?
-      options = children.map do
-        |child| option(child.id) + 'Turn to page ' + child.page_start.to_s
-      end
       [{ page: page_end, footers: options }]
     end
   end
@@ -88,27 +85,30 @@ class BookSegment
 
   private
 
-  def child_option(child_id)
-    if child_options.present? && child_options.is_a?(Array)
-      child_options.find do |child_option|
-        child_option.keys[0] == child_id
-      end.values[0]
-    end
+  def child(id)
+    children.find { |child| id.include? child.id }
   end
 
   def contents_is_array
     is_array(contents: contents)
   end
 
-  def option(child_id)
-    option = child_option(child_id)
-    option.present? ? option + ' - ' : ''
-  end
-
   def is_array(attribute)
     name, value = attribute.first
     if !value.nil?
       errors.add(name, 'must be an array') unless value.is_a? Array
+    end
+  end
+
+  def options
+    if child_options.is_a? Array
+      child_options.map do |child_option|
+        option_string = child_option.values[0]
+        child_page = child(child_option.keys[0]).page_start.to_s
+        option_string + ' - Turn to page ' + child_page
+      end
+    else
+      ['Turn to page ' + children.first.page_start.to_s]
     end
   end
 

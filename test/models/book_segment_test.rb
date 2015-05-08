@@ -28,9 +28,9 @@ class BookSegmentTest < Minitest::Test
 
   def test_child_options_array_child_ids
     book_segment = BookSegment.new [], id: 'x',
-      child_options: [{'a' => 'A'}, {'b' => 'B'}]
+      child_options: [{'a' => 'A'}, {'b' => 'B'}, {'a' => 'C'}]
     assert book_segment.valid?
-    assert_equal ['a', 'b'], book_segment.child_ids
+    assert_equal ['a', 'b', 'a'], book_segment.child_ids
   end
 
   def test_child_options_string
@@ -57,7 +57,7 @@ class BookSegmentTest < Minitest::Test
     child_segment_a = BookSegment.new [], id: 'a'
     child_segment_b = BookSegment.new [], id: 'b'
     book_segment = BookSegment.new [child_segment_a, child_segment_b],
-      id: 'x', child_options: [{'a' => 'A'}, {'b' => 'B'}]
+      id: 'x', child_options: [{'a' => 'A'}, {'b' => 'B'}, {'a' => 'C'}]
     assert book_segment.valid?
     assert_equal [child_segment_a, child_segment_b], book_segment.children
   end
@@ -195,7 +195,7 @@ class BookSegmentTest < Minitest::Test
     segments << book_segment = BookSegment.new(segments, id: 'a',
       page_start: 1,
       page_end: 1,
-      child_options: [{ 'x' => 'X' }, { 'y' => 'Y' }])
+      child_options: [{ 'x' => 'X' }, { 'y' => 'Y' }, { 'x' => 'Z' }])
     segments << BookSegment.new(segments, id: 'x',
       child_options: 'b',
       page_start: 2,
@@ -207,7 +207,8 @@ class BookSegmentTest < Minitest::Test
     assert book_segment.footer_options?
     assert book_segment.footers?
     expected = [{ page: 1, footers: ['X - Turn to page 2',
-                                     'Y - Turn to page 3'] }]
+                                     'Y - Turn to page 3',
+                                     'Z - Turn to page 2'] }]
     assert_equal expected, book_segment.footers
   end
 
