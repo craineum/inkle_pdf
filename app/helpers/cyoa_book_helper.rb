@@ -71,6 +71,7 @@ module CyoaBookHelper
       content = convert_markup(content)
       options = { inline_format: true }
       if header? content
+        move_down 20
         options.merge!({ align: :center, size: 16 })
       else
         options.merge!({ indent_paragraphs: 20 })
