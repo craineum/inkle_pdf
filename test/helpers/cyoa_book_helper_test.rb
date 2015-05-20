@@ -10,6 +10,7 @@ class CyoaBookHelper::CyoaBookPdfTest < Minitest::Test
     markup_converter_class = Minitest::Mock.new
     map = [
       { from_start: /\*-/, from_end: /-\*/, to: 'b' },
+      { from_start: /\*\^/, from_end: /\^\*/, to: 'sup' },
       { from_start: /\/=/, from_end: /=\//, to: 'i' }
     ]
     markup_converter_class.expect :new, @markup_converter, [map]
@@ -41,9 +42,11 @@ class CyoaBookHelper::CyoaBookPdfTest < Minitest::Test
   def test_footer_styles
     @markup_converter.expect :tags, '<b>Monkey A</b>', ['*-Monkey A-*']
     @markup_converter.expect :tags, '<i>Monkeys B</i>', ['/=Monkeys B=/']
-    cyoa_book.footer ['*-Monkey A-*', '/=Monkeys B=/']
+    @markup_converter.expect :tags, '<sup>Monkeys C</sup>', ['*^Monkeys C^*']
+    cyoa_book.footer ['*-Monkey A-*', '/=Monkeys B=/', '*^Monkeys C^*']
     assert_pdf_has_content? cyoa_book.render, 'Monkey A'
     assert_pdf_has_content? cyoa_book.render, 'Monkeys B'
+    assert_pdf_has_content? cyoa_book.render, 'Monkeys C'
     @markup_converter.verify
   end
 
@@ -70,11 +73,13 @@ class CyoaBookHelper::CyoaBookPdfTest < Minitest::Test
   end
 
   def test_segment_contents_styles
-    text = '/=bold=/ *-monkey-*'
-    @markup_converter.expect :tags, '<i>bold</i> <b>monkey</b>', [text]
+    text = '/=bold=/ *-monkey-* *^banana^*'
+    @markup_converter.expect :tags,
+      '<i>bold</i> <b>monkey</b> <sup>banana</sup>', [text]
     cyoa_book.segment_contents [text]
     assert_pdf_has_content? cyoa_book.render, 'bold'
     assert_pdf_has_content? cyoa_book.render, 'monkey'
+    assert_pdf_has_content? cyoa_book.render, 'banana'
     @markup_converter.verify
   end
 end

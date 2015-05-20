@@ -5,6 +5,7 @@ module CyoaBookHelper
     def initialize(attributes={})
       @markup_converter = attributes.delete(:markup_converter).new([
         { from_start: /\*-/, from_end: /-\*/, to: 'b' },
+        { from_start: /\*\^/, from_end: /\^\*/, to: 'sup' },
         { from_start: /\/=/, from_end: /=\//, to: 'i' }
       ])
       @document ||= Prawn::Document.new(attributes)
