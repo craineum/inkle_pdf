@@ -9,31 +9,7 @@ class FormTest < Capybara::Rails::TestCase
     page.assert_selector '#inkle_url'
   end
 
-  def test_submit_json_url
-    inkle_url = 'https://writer.inklestudios.com/stories/musgraveritual.json'
-    visit root_path
-    fill_in 'Inkle URL', with: inkle_url
-    click_button 'Submit'
-    assert_equal 'application/pdf; charset=utf-8',
-      page.response_headers['Content-Type']
-    assert_pdf_has_content? page.source, 'The Adventure of the Musgrave Ritual'
-    assert_pdf_has_content? page.source, 'Sir Arthur Conan Doyle'
-    assert_pdf_page_count page.source, 67
-  end
-
-  def test_submit_url
-    inkle_url = 'https://writer.inklestudios.com/stories/musgraveritual'
-    visit root_path
-    fill_in 'Inkle URL', with: inkle_url
-    click_button 'Submit'
-    assert_equal 'application/pdf; charset=utf-8',
-      page.response_headers['Content-Type']
-    assert_pdf_has_content? page.source, 'The Adventure of the Musgrave Ritual'
-    assert_pdf_has_content? page.source, 'Sir Arthur Conan Doyle'
-    assert_pdf_page_count page.source, 67
-  end
-
-  def test_submit_inkle_story_id
+  def test_default_options
     visit root_path
     fill_in 'Inkle URL', with: 'musgraveritual'
     click_button 'Submit'
@@ -42,5 +18,18 @@ class FormTest < Capybara::Rails::TestCase
     assert_pdf_has_content? page.source, 'The Adventure of the Musgrave Ritual'
     assert_pdf_has_content? page.source, 'Sir Arthur Conan Doyle'
     assert_pdf_page_count page.source, 67
+  end
+
+  def test_title_page
+    visit root_path
+    uncheck 'Include Title Page'
+    fill_in 'Inkle URL', with: 'musgraveritual'
+    click_button 'Submit'
+    assert_equal 'application/pdf; charset=utf-8',
+      page.response_headers['Content-Type']
+    assert_pdf_has_no_content? page.source,
+      'The Adventure of the Musgrave Ritual'
+    assert_pdf_has_no_content? page.source, 'Sir Arthur Conan Doyle'
+    assert_pdf_page_count page.source, 66
   end
 end

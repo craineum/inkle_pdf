@@ -8,6 +8,7 @@ class CyoaBookController < ApplicationController
     @title = parser.title
     @author  = parser.author
     @segments = BookSegments.new.add parser.segments
+    @include_title_page = params[:title_page]
   end
 
   private

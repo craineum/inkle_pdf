@@ -2,5 +2,7 @@
 <%= form_tag action: :create, format: :pdf do %>
   <%= label_tag :inkle_url, 'Inkle URL' %>
   <%= text_field_tag :inkle_url %>
+  <%= label_tag :title_page, 'Include Title Page' %>
+  <%= check_box_tag :title_page, '1', true %>
   <%= submit_tag 'Submit' %>
 <% end %>
