@@ -1,0 +1,8 @@
+#markup_maps > div:first-child > .markup-map {
+  & > :first-child {
+    display: none;
+  }
+  & > :last-child {
+    display: none;
+  }
+}

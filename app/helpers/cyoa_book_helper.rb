@@ -3,11 +3,13 @@ module CyoaBookHelper
     include Prawn::View
 
     def initialize(attributes={})
-      @markup_converter = attributes.delete(:markup_converter).new([
+      default_map = [
         { from_start: /\*-/, from_end: /-\*/, to: 'b' },
-        { from_start: /\*\^/, from_end: /\^\*/, to: 'sup' },
         { from_start: /\/=/, from_end: /=\//, to: 'i' }
-      ])
+      ]
+      markup_map = attributes.delete(:markup_map) { |key| [] }
+      @markup_converter = attributes.delete(:markup_converter).new(
+        default_map + markup_map)
       @document ||= Prawn::Document.new(attributes)
       @pages_with_footer = []
     end

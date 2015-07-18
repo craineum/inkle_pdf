@@ -9,6 +9,7 @@ class CyoaBookController < ApplicationController
     @author  = parser.author
     @segments = BookSegments.new.add parser.segments
     @include_title_page = params[:title_page]
+    @markup_map = markup_mapper
   end
 
   private
@@ -23,5 +24,9 @@ class CyoaBookController < ApplicationController
 
   def parser
     @parser ||= ParseInkleService.new(open(url).read)
+  end
+
+  def markup_mapper
+    MarkupMapperService.new(params).tags_mapping
   end
 end

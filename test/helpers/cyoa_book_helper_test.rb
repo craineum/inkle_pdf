@@ -8,14 +8,17 @@ class CyoaBookHelper::CyoaBookPdfTest < Minitest::Test
   def setup
     @markup_converter = Minitest::Mock.new
     markup_converter_class = Minitest::Mock.new
-    map = [
+    default_map = [
       { from_start: /\*-/, from_end: /-\*/, to: 'b' },
-      { from_start: /\*\^/, from_end: /\^\*/, to: 'sup' },
       { from_start: /\/=/, from_end: /=\//, to: 'i' }
     ]
+    markup_map = [
+      { from_start: /\*\^/, from_end: /\^\*/, to: 'sup' }
+    ]
+    map = default_map + markup_map
     markup_converter_class.expect :new, @markup_converter, [map]
     @cyoa_book = CyoaBookHelper::CyoaBookPdf.new(
-      markup_converter: markup_converter_class)
+      { markup_converter: markup_converter_class, markup_map: markup_map })
   end
 
   def test_footer_single

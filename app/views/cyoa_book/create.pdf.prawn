@@ -1,6 +1,7 @@
 prawn_document({ renderer: CyoaBookHelper::CyoaBookPdf,
                  skip_page_creation: true,
                  markup_converter: MarkupConverter,
+                 markup_map: @markup_map,
                  page_size: [432, 648],
                  margin: [54, 54, 135, 54] }) do |pdf|
   if @include_title_page

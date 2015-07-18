@@ -11,4 +11,6 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
+Capybara.javascript_driver = :selenium
+
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }

@@ -19,8 +19,15 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# PDF generation
 gem 'prawn'
 gem 'prawn_rails'
+
+# Bootstrap
+gem 'bootstrap-sass'
+
+# ReactJS
+gem 'react-rails', '~> 1.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -48,7 +55,9 @@ end
 group :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
+  gem 'selenium-webdriver'
   gem 'pdf-inspector', require: 'pdf/inspector'
   gem 'faker'
+  gem 'launchy'
 end
 
