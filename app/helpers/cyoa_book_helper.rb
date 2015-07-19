@@ -18,20 +18,26 @@ module CyoaBookHelper
     end
 
     def footer(messages)
-      if @pages_with_footer.exclude? page_number
-        @pages_with_footer << page_number
-        canvas do
-          start_top = 30
-          top = start_top if messages.size < 2
-          top = start_top + ((messages.size - 1) * 12) if messages.size > 1
-          bounding_box([36, top], width: 232, height: messages.size * 12) do
-            messages.each do |message|
-              text convert_markup(message),
-                inline_format: true,
-                size: 10,
-                overflow: :shrink_to_fit,
-                min_font_size: 8
-            end
+      return nil unless @pages_with_footer.exclude? page_number
+      @pages_with_footer << page_number
+      canvas do
+        start_top = 30
+        top = start_top if messages.size < 2
+        top = start_top + ((messages.size - 1) * 12) if messages.size > 1
+
+        transparent(0.5) do
+          stroke_line [30, top + 8], [274, top + 8]
+          fill_color 'EEEEEE'
+          fill_rectangle [30, top + 6], 244, (messages.size * 12) + 12
+        end
+
+        bounding_box([36, top], width: 232, height: messages.size * 12) do
+          messages.each do |message|
+            text convert_markup(message),
+              inline_format: true,
+              size: 10,
+              overflow: :shrink_to_fit,
+              min_font_size: 8
           end
         end
       end
