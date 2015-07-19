@@ -54,7 +54,7 @@ class ParseInkleServiceTest < Minitest::Test
   def test_paragraph_with_options
     json_string = wrap_json_string '{
       "b": { "content": [ "man", {
-        "image": "a"
+        "ifConditions": "a"
       }, {
         "linkPath": "x", "option": "no"
       }, {
@@ -222,5 +222,18 @@ class ParseInkleServiceTest < Minitest::Test
     assert_equal ['is beautiful', 'and smart'], parsed.third[:contents]
     assert_equal ['a', 'x'], parsed.third[:parent_ids]
     assert_equal(nil, parsed.third[:child_options])
+  end
+
+  def test_images
+    json_string = wrap_json_string '{
+      "a": { "content": [ "monkey", {}, { "divert": "b" } ] },
+      "b": { "content": [ "man", { "divert": "c" }, { "image": "img_1" } ] },
+      "c": { "content": [ "was here", { "image": "img_2" } ] }
+    }'
+    parsed = ParseInkleService.new(json_string).segments
+    assert_equal 1, parsed.count
+    assert_equal 'a', parsed.first[:id]
+    contents = ['monkey', '<image::img_1>', 'man', '<image::img_2>', 'was here']
+    assert_equal contents, parsed.first[:contents]
   end
 end

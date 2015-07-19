@@ -85,19 +85,17 @@ class ParseInkleService
     @paragraph_data = paragraph_data
     {
       id: id,
-      contents: content,
+      contents: image + content,
       child_options: child_options(id) || child_divert(id),
       parent_ids: parent_ids
     }
   end
 
-  def contents(paragraph_data)
-    @paragraph_data = paragraph_data
-    if has_next_paragraph?
-      return content + contents(@paragraphs.fetch(next_paragraph))
-    else
-      return content
-    end
+  def image
+    image = @paragraph_data['content'].select do |content|
+      content.is_a?(Hash) && content.has_key?('image')
+    end.first.presence || {}
+    image.map { |k,v| "<#{k}::#{v}>" }
   end
 
   def has_next_paragraph?

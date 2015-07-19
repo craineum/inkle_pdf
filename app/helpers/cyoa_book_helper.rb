@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'open_uri_redirections'
+
 module CyoaBookHelper
   class CyoaBookPdf
     include Prawn::View
@@ -70,16 +73,35 @@ module CyoaBookHelper
       content.match(/<b>.*?<\/b>/).to_s == content
     end
 
+    def image?(content)
+      content.include? '<image::'
+    end
+
+    def image_file_path(content)
+      img_url = content.match(/<image::(.*)?>/)[1]
+      tempfile = Tempfile.new('image')
+      tempfile.binmode
+      tempfile.write open(img_url, allow_redirections: :safe).read
+      tempfile.close
+      tempfile.path
+    end
+
     def text_formatted(content)
       content = convert_markup(content)
       options = { inline_format: true }
       if header? content
-        move_down 20
+        move_down 10
         options.merge!({ align: :center, size: 16 })
       else
         options.merge!({ indent_paragraphs: 20 })
       end
-      text content, options
+      if image?(content)
+        move_down 20
+        options.merge!({ position: :center, scale: 0.24 })
+        image image_file_path(content), options
+      else
+        text content, options
+      end
     end
   end
 end

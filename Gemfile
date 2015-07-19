@@ -29,6 +29,9 @@ gem 'bootstrap-sass'
 # ReactJS
 gem 'react-rails', '~> 1.0'
 
+# allow open uri to redirect from http to https
+gem 'open_uri_redirections'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
