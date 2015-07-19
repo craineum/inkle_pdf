@@ -26,7 +26,7 @@ class FormTest < Capybara::Rails::TestCase
     assert_pdf_has_content? page.source, title
     assert_pdf_has_content? page.source, author
     assert_pdf_has_content? page.source, sentence
-    assert_pdf_page_count page.source, 67
+    assert_pdf_page_count page.source, 68
   end
 
   def test_title_page
@@ -39,7 +39,7 @@ class FormTest < Capybara::Rails::TestCase
     assert_pdf_has_no_content? page.source,
       'The Adventure of the Musgrave Ritual'
     assert_pdf_has_no_content? page.source, 'Sir Arthur Conan Doyle'
-    assert_pdf_page_count page.source, 66
+    assert_pdf_page_count page.source, 67
   end
 
   def test_markup_mapping

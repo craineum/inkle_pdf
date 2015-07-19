@@ -21,10 +21,16 @@ module CyoaBookHelper
       if @pages_with_footer.exclude? page_number
         @pages_with_footer << page_number
         canvas do
-          bounding_box([54, 129], width: 324, height: 113) do
-            move_down (7 - messages.count) * 14
+          start_top = 30
+          top = start_top if messages.size < 2
+          top = start_top + ((messages.size - 1) * 12) if messages.size > 1
+          bounding_box([36, top], width: 232, height: messages.size * 12) do
             messages.each do |message|
-              text convert_markup(message), inline_format: true
+              text convert_markup(message),
+                inline_format: true,
+                size: 10,
+                overflow: :shrink_to_fit,
+                min_font_size: 8
             end
           end
         end
@@ -38,28 +44,33 @@ module CyoaBookHelper
     def page_numbers
       page = '<page>'
       odd_options = {
-        at: [bounds.right + 6, bounds.top + 36],
-        width: 42,
+        at: [bounds.right + 6, bounds.top + 18],
+        width: 24,
         align: :center,
         page_filter: :odd,
         start_count_at: 1,
-        size: 18
+        size: 14
       }
       even_options = {
-        at: [bounds.left - 48, bounds.top + 36],
-        width: 42,
+        at: [bounds.left - 30, bounds.top + 18],
+        width: 24,
         align: :center,
         page_filter: :even,
         start_count_at: 2,
-        size: 18
+        size: 14
       }
       number_pages page, odd_options
       number_pages page, even_options
     end
 
-    def segment_contents(contents)
-      contents.each do |content|
-        text_formatted content
+    def segment_contents(contents, footer_size = 1)
+      max_height = 324
+      height = max_height if footer_size < 2
+      height = max_height - (12 * (footer_size - 1)) if footer_size > 1
+      bounding_box([0, cursor], width: 232, height: height) do
+        contents.each do |content|
+          text_formatted content
+        end
       end
     end
 
