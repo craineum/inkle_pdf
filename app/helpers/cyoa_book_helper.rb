@@ -29,7 +29,7 @@ module CyoaBookHelper
 
         transparent(0.5) do
           stroke_line [30, top + 8], [274, top + 8]
-          fill_color 'EEEEEE'
+          fill_color 'DDDDDD'
           fill_rectangle [30, top + 6], 244, (messages.size * 12) + 12
         end
 
@@ -130,6 +130,7 @@ module CyoaBookHelper
         move_down 20
         options = { position: :center, scale: 0.24 }
         image content_image(content).path, options
+        move_down 20
       else
         text content, options
       end

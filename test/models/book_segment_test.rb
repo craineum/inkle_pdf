@@ -84,7 +84,8 @@ class BookSegmentTest < Minitest::Test
   def test_footer_end_true
     book_segment = BookSegment.new [], id: 'x', page_end: 1
     assert book_segment.footer_end?
-    assert_equal [{ page: 1, footers: ['The End'] }], book_segment.footer_end
+    assert_equal [{ page: 1, footers: ['<b>The End</b>'] }],
+      book_segment.footer_end
   end
 
   def test_footer_next_false
@@ -114,8 +115,8 @@ class BookSegmentTest < Minitest::Test
       child_options: [{ 'a' => 'Monkey' }, { 'b' => 'Monkeys' }],
       page_end: 1
     assert book_segment.footer_options?
-    expected = [{ page: 1, footers: ['Monkey - Turn to page 2',
-                                     'Monkeys - Turn to page 3'] }]
+    expected = [{ page: 1, footers: ['<b>Monkey</b> - Turn to page 2',
+                                     '<b>Monkeys</b> - Turn to page 3'] }]
     assert_equal expected, book_segment.footer_options
   end
 
@@ -171,7 +172,7 @@ class BookSegmentTest < Minitest::Test
     assert !book_segment.parents_footers?
     assert !parent_segment.footer_options?
     assert book_segment.footers?
-    assert_equal [{ page: 1, footers:['The End'] }], book_segment.footers
+    assert_equal [{ page: 1, footers:['<b>The End</b>'] }], book_segment.footers
   end
 
   def test_footers_true_next
@@ -206,9 +207,9 @@ class BookSegmentTest < Minitest::Test
     assert !book_segment.parents_footers?
     assert book_segment.footer_options?
     assert book_segment.footers?
-    expected = [{ page: 1, footers: ['X - Turn to page 2',
-                                     'Y - Turn to page 3',
-                                     'Z - Turn to page 2'] }]
+    expected = [{ page: 1, footers: ['<b>X</b> - Turn to page 2',
+                                     '<b>Y</b> - Turn to page 3',
+                                     '<b>Z</b> - Turn to page 2'] }]
     assert_equal expected, book_segment.footers
   end
 
@@ -224,8 +225,8 @@ class BookSegmentTest < Minitest::Test
     assert book_segment.parents_footers?
     assert parent_segment.footer_options?
     assert book_segment.footers?
-    expected = [{ page: 1, footers: ['X - Turn to page 2',
-                                     'Y - Turn to page 3'] }]
+    expected = [{ page: 1, footers: ['<b>X</b> - Turn to page 2',
+                                     '<b>Y</b> - Turn to page 3'] }]
     assert_equal expected, book_segment.footers
   end
 

@@ -29,7 +29,7 @@ class BookSegment
   end
 
   def footer_end
-    [{ page: page_end, footers: ['The End'] }] if footer_end?
+    [{ page: page_end, footers: ['<b>The End</b>'] }] if footer_end?
   end
 
   def footer_end?
@@ -105,7 +105,7 @@ class BookSegment
       child_options.map do |child_option|
         option_string = child_option.values[0]
         child_page = child(child_option.keys[0]).page_start.to_s
-        option_string + ' - Turn to page ' + child_page
+        '<b>' + option_string + '</b> - Turn to page ' + child_page
       end
     else
       ['Turn to page ' + children.first.page_start.to_s]
