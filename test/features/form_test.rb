@@ -68,4 +68,10 @@ class FormTest < Capybara::Rails::TestCase
     assert page.has_content? have_sentence
     assert page.has_no_content? not_have_sentence
   end
+
+  def test_page_number_image
+    visit root_path
+    fill_in 'Inkle URL', with: 'musgraveritual'
+    fill_in 'Page Number Image', with: 'test'
+  end
 end

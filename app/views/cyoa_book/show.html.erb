@@ -15,6 +15,12 @@
         <%= label_tag :title_page, 'Include Title Page' %>
       </div>
     </div>
+    <div class='form-group'>
+      <%= label_tag :page_number_image, 'Page Number Image', class: 'col-xs-3 control-label' %>
+      <div class='col-xs-9'>
+        <%= text_field_tag :page_number_image, nil, class: 'form-control', placeholder: 'http://imgur.com/test.jpg' %>
+      </div>
+    </div>
     <div class='form-group' id='markup-mappping'>
       <%= react_component 'MarkupMapping' %>
     </div>

@@ -1,5 +1,6 @@
 prawn_document({ renderer: CyoaBookHelper::CyoaBookPdf,
                  skip_page_creation: true,
+                 page_number_image: @page_number_image,
                  markup_converter: MarkupConverter,
                  markup_map: @markup_map,
                  page_size: [306, 396],

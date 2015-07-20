@@ -10,6 +10,8 @@ module CyoaBookHelper
         { from_start: /\*-/, from_end: /-\*/, to: 'b' },
         { from_start: /\/=/, from_end: /=\//, to: 'i' }
       ]
+      img_url = attributes.delete :page_number_image
+      @page_number_image = image_file img_url if img_url.present?
       markup_map = attributes.delete(:markup_map) { |key| [] }
       @markup_converter = attributes.delete(:markup_converter).new(
         default_map + markup_map)
@@ -48,22 +50,31 @@ module CyoaBookHelper
     end
 
     def page_numbers
+      (1..page_count).each do |number|
+        go_to_page number
+        options = { at: [bounds.right - 3, bounds.top + 26] } if number.odd?
+        options = { at: [bounds.left - 27, bounds.top + 26] } if number.even?
+        options.merge!({ scale: 0.24 })
+
+        image @page_number_image.path, options
+      end if @page_number_image
+
       page = '<page>'
       odd_options = {
-        at: [bounds.right + 6, bounds.top + 18],
+        at: [bounds.right, bounds.top + 15],
         width: 24,
         align: :center,
         page_filter: :odd,
         start_count_at: 1,
-        size: 14
+        size: 10
       }
       even_options = {
-        at: [bounds.left - 30, bounds.top + 18],
+        at: [bounds.left - 24, bounds.top + 15],
         width: 24,
         align: :center,
         page_filter: :even,
         start_count_at: 2,
-        size: 14
+        size: 10
       }
       number_pages page, odd_options
       number_pages page, even_options
@@ -94,13 +105,16 @@ module CyoaBookHelper
       content.include? '<image::'
     end
 
-    def image_file_path(content)
-      img_url = content.match(/<image::(.*)?>/)[1]
+    def content_image(content)
+      image_file content.match(/<image::(.*)?>/)[1]
+    end
+
+    def image_file(img_url)
       tempfile = Tempfile.new('image')
       tempfile.binmode
       tempfile.write open(img_url, allow_redirections: :safe).read
       tempfile.close
-      tempfile.path
+      tempfile
     end
 
     def text_formatted(content)
@@ -114,8 +128,8 @@ module CyoaBookHelper
       end
       if image?(content)
         move_down 20
-        options.merge!({ position: :center, scale: 0.24 })
-        image image_file_path(content), options
+        options = { position: :center, scale: 0.24 }
+        image content_image(content).path, options
       else
         text content, options
       end

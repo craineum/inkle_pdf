@@ -9,6 +9,7 @@ class CyoaBookController < ApplicationController
     @author  = parser.author
     @segments = BookSegments.new.add parser.segments
     @include_title_page = params[:title_page]
+    @page_number_image = params[:page_number_image]
     @markup_map = markup_mapper
   end
 
