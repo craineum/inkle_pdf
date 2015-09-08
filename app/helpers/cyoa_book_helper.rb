@@ -127,7 +127,7 @@ module CyoaBookHelper
         options.merge!({ indent_paragraphs: 20 })
       end
       if image?(content)
-        move_down 20
+        move_down 20 unless y == 360
         options = { position: :center, scale: 0.24 }
         image content_image(content).path, options
         move_down 20
